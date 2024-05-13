@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/json"
 	"io"
 	"log"
 	"net/http"
@@ -15,11 +16,12 @@ import (
 )
 
 type ServerController struct {
-	service *service.ServerService
+	service      *service.ServerService
+	cacheService *service.CacheService
 }
 
-func NewServerController(service *service.ServerService) *ServerController {
-	return &ServerController{service: service}
+func NewServerController(service *service.ServerService, cacheService *service.CacheService) *ServerController {
+	return &ServerController{service: service, cacheService: cacheService}
 }
 
 func (controller *ServerController) GetServer(c *gin.Context) {
@@ -64,6 +66,7 @@ func (controller *ServerController) UpdateServer(c *gin.Context) {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
+	controller.cacheService.Set("server:"+strconv.Itoa(int(server.ID)), server)
 	c.JSON(200, server)
 	return
 }
@@ -79,6 +82,7 @@ func (controller *ServerController) DeleteServer(c *gin.Context) {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
+	controller.cacheService.Set("server:"+strconv.Itoa(id), nil)
 	c.JSON(200, gin.H{"message": "Record deleted successfully"})
 	return
 }
@@ -101,6 +105,11 @@ func (controller *ServerController) CreateServer(c *gin.Context) {
 		c.JSON(500, gin.H{"error": err.Error()})
 		return
 	}
+	allServersString, err := json.Marshal(controller.service.GetAllServers())
+	if err != nil {
+		log.Println(err)
+	}
+	controller.cacheService.Set("server:all", allServersString)
 	c.JSON(200, server)
 	return
 }
@@ -163,7 +172,11 @@ func (controller *ServerController) ImportServers(c *gin.Context) {
 			successNames = append(successNames, server.Name)
 		}
 	}
-
+	allServersString, err := json.Marshal(controller.service.GetAllServers())
+	if err != nil {
+		log.Println(err)
+	}
+	controller.cacheService.Set("server:all", allServersString)
 	c.JSON(http.StatusOK, gin.H{
 		"failure_count": failureCount,
 		"success_count": successCount,

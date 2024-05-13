@@ -1,12 +1,14 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
 	"vcs-sms/model/dto"
 	"vcs-sms/model/entity"
 	"vcs-sms/service"
 
 	"github.com/gin-gonic/gin"
+	log "github.com/sirupsen/logrus"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -40,6 +42,7 @@ func (controller *AuthController) Register(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user: " + err.Error()})
 		return
 	}
+	log.Info(fmt.Sprintf("User %s created", authRequest.Username))
 	c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
 	return
 }
@@ -62,9 +65,11 @@ func (controller *AuthController) Login(c *gin.Context) {
 	}
 	accessToken, err := controller.jwtService.GenerateToken(&user)
 	if err != nil {
+		log.Error("Failed to generate token: ", err.Error())
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate token"})
 		return
 	}
+	log.Info(fmt.Sprintf("User %s logged in", authRequest.Username))
 	c.JSON(http.StatusOK, gin.H{"access_token": accessToken})
 	return
 }

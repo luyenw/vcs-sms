@@ -1,6 +1,7 @@
 package route
 
 import (
+	"vcs-sms/config/cache"
 	"vcs-sms/config/sql"
 	"vcs-sms/controller"
 	SCOPE "vcs-sms/enum"
@@ -9,8 +10,7 @@ import (
 )
 
 func (r *Router) InitServerRoute() {
-	serverService := service.NewServerService(sql.GetPostgres())
-	serverController := controller.NewServerController(serverService)
+	serverController := controller.NewServerController(service.NewServerService(sql.GetPostgres()), service.NewCacheService(cache.GetRedis()))
 
 	serverRouter := r.Group("/servers")
 	serverRouter.GET("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.GetServer)
