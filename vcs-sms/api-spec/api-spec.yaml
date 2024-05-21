@@ -1,0 +1,416 @@
+openapi: 3.0.0
+info:
+  title: VCS-SMS API Specification
+  version: 1.0.0
+servers:
+  - url: http://localhost:8081
+    description: Development server
+paths:
+  /auth/register:
+    post:
+      summary: Register a new user
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '200':
+          description: User registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /auth/login:
+    post:
+      summary: Login a user
+      tags:
+        - auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /report:
+    post:
+      summary: Send a report
+      tags:
+        - report
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_REPORT_READ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendReportRequest'
+      responses:
+        '200':
+          description: Report sent successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /server:
+    get:
+      summary: Get server information
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ]
+      responses:
+        '200':
+          description: Server information retrieved successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      summary: Create a new server
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServerRequest'
+      responses:
+        '200':
+          description: Server created successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /server/export:
+    get:
+      summary: Export servers
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ]
+      parameters:
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Page'
+      responses:
+        '200':
+          description: Servers exported successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportServersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /server/import:
+    post:
+      summary: Import servers
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ_WRITE]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ImportServersRequest'
+      responses:
+        '200':
+          description: Servers imported successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImportServersResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /server/{id}:
+    patch:
+      summary: Update a server
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ_WRITE]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Server ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServerRequest'
+      responses:
+        '200':
+          description: Server updated successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    delete:
+      summary: Delete a server
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_SERVER_READ_WRITE]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: Server ID
+      responses:
+        '200':
+          description: Server deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /user:
+    post:
+      summary: Create a new user
+      tags:
+        - user
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_USER_READ_WRITE]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+      responses:
+        '200':
+          description: User created successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /user/{id}/scopes:
+    put:
+      summary: Update user scopes
+      tags:
+        - user
+      security:
+        - TokenAuthorization: []
+        - CheckScope: [API_USER_READ_WRITE]
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: string
+          required: true
+          description: User ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserScopeRequest'
+      responses:
+        '200':
+          description: User scopes updated successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    TokenAuthorization:
+      type: apiKey
+      in: header
+      name: Authorization
+    CheckScope:
+      type: apiKey
+      in: header
+      name: X-Scope
+  parameters:
+    PageSize:
+      in: query
+      name: page_size
+      schema:
+        type: integer
+        default: 10
+      required: false
+      description: Number of servers per page
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 1
+      required: false
+      description: Page number
+  schemas:
+    RegisterRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    RegisterResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+    LoginResponse:
+      type: object
+      properties:
+        token:
+          type: string
+    SendReportRequest:
+      type: object
+      properties:
+        start_date:
+          type: string
+        end_date:
+          type: string  
+        email:
+          type: string
+    CreateServerRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        ipv4:
+          type: string
+        status:
+          type: integer
+    ExportServersResponse:
+      type: object
+      properties:
+        url:
+          type: string
+    ImportServersRequest:
+      type: object
+      properties:
+        file:
+          format: binary
+    ImportServersResponse:
+      type: object
+      properties:
+        success_count:
+          type: integer
+        failure_count:
+          type: integer
+        success_names:
+          type: array
+          items:
+            type: string
+    UpdateServerRequest:
+      type: object
+      properties:
+        serverData:
+          type: string
+    CreateUserRequest:
+      type: object
+      properties:
+        username:
+          type: string
+          example: "luyendd9"
+        password:
+          type: string
+          example: "luyendd"
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "api-server:write"
+    UpdateUserScopeRequest:
+      type: object
+      properties:
+        scopes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+                example: "api-server:read-write"
+    ErrorResponse:  
+      type: object
+      properties:
+        message:
+          type: string

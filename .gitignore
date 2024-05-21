@@ -1,3 +1,11 @@
-/.idea
-/config/*/*
-/tmp
+go.work
+go.work.sum
+/*/main
+
+/vcs-sms/.idea
+/vcs-sms/config/*/*
+/vcs-sms/tmp/
+
+/*/go.sum
+/*/config/*/*
+
