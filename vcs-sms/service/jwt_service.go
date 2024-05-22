@@ -7,6 +7,10 @@ import (
 	"github.com/golang-jwt/jwt"
 )
 
+type IJWTService interface {
+	GenerateToken(user *entity.User) (string, error)
+}
+
 type JWTService struct {
 }
 

@@ -13,10 +13,10 @@ import (
 )
 
 type ReportController struct {
-	service *service.ReportService
+	service service.IReportService
 }
 
-func NewReportController(reportService *service.ReportService) *ReportController {
+func NewReportController(reportService service.IReportService) *ReportController {
 	return &ReportController{
 		service: reportService,
 	}
@@ -27,7 +27,7 @@ func (controller *ReportController) SendReport(c *gin.Context) {
 	requestBody := &dto.ReportRequest{}
 	if err := c.ShouldBindJSON(requestBody); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind json: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid start date format. Use dd-mm-yyyy"})
 		return
 	}
 	startDate, err := time.Parse("02-01-2006", requestBody.StartDate)

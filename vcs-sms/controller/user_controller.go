@@ -14,10 +14,10 @@ import (
 )
 
 type UserController struct {
-	service *service.UserService
+	service service.IUserService
 }
 
-func NewUserController(service *service.UserService) *UserController {
+func NewUserController(service service.IUserService) *UserController {
 	return &UserController{service: service}
 }
 
@@ -52,12 +52,13 @@ func (controller *UserController) CreateUser(c *gin.Context) {
 }
 
 func (controller *UserController) UpdateUserScope(c *gin.Context) {
-	idParam := c.Param("id")
-	id, err := strconv.Atoi(idParam)
 	log := logger.NewLogger()
+	idParam := c.Param("id")
+	parseId, err := strconv.ParseInt(idParam, 10, 64)
+	id := int(parseId)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to parse id: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(http.StatusBadRequest, gin.H{"error": "User not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to parse id"})
 		return
 	}
 	user := controller.service.FindUserByID(id)
@@ -68,6 +69,7 @@ func (controller *UserController) UpdateUserScope(c *gin.Context) {
 	}
 	scopes := dto.UpdatePermissionRequest{}
 	if err := c.ShouldBindJSON(&scopes); err != nil {
+		fmt.Println(err)
 		log.Error(fmt.Sprintf("Failed to bind json: %s", err.Error()), zap.String("client", c.ClientIP()))
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -78,6 +80,7 @@ func (controller *UserController) UpdateUserScope(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update user scope: " + err.Error()})
 		return
 	}
+	fmt.Println(err)
 	log.Info(fmt.Sprintf("User scope updated successfully: %d", id), zap.String("client", c.ClientIP()))
 	c.JSON(http.StatusOK, gin.H{"message": "User scope updated successfully"})
 	return

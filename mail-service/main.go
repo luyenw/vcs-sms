@@ -36,19 +36,16 @@ func main() {
 		if err == nil {
 			mailRequest := &mailRequest{}
 			if e := json.Unmarshal(msg.Value, mailRequest); err != nil {
-				fmt.Println(e)
 				log.Error(fmt.Sprintf("Error unmarshalling message: %v", e))
 				continue
 			}
 			if e := mailService.SendEmail(mailRequest.To, mailRequest.Body); e != nil {
-				fmt.Println(e)
 				log.Error(fmt.Sprintf("Error sending email to %v: %v", mailRequest.To, e))
 				continue
 			}
 			log.Info(fmt.Sprintf("Sent email to %v", mailRequest.To))
 		} else {
-			// fmt.Printf("Consumer error: %v (%v)\n", err, msg)
-			// log.Error(fmt.Sprintf("Consumer error: %v (%v)\n", err, msg))
+
 		}
 	}
 }

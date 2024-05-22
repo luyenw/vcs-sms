@@ -6,6 +6,13 @@ import (
 	"vcs-sms/repo"
 )
 
+type IUserService interface {
+	CreateNewUser(username string, password string, scopes []entity.Scope) error
+	FindByUsername(username string) entity.User
+	FindUserByID(id int) *entity.User
+	UpdateUserScope(user *entity.User, scopes []dto.ScopeDTO) error
+}
+
 type UserService struct {
 	db repo.IDatabase
 }

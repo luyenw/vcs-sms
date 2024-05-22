@@ -20,22 +20,21 @@ import (
 )
 
 type ServerController struct {
-	service      *service.ServerService
-	cacheService *service.CacheService
+	service      service.IServerService
+	cacheService service.ICacheService
+	xlsxService  service.IXLSXService
 }
 
-func NewServerController(service *service.ServerService, cacheService *service.CacheService) *ServerController {
-	return &ServerController{service: service, cacheService: cacheService}
+func NewServerController(serverService service.IServerService, cacheService service.ICacheService, xlsxService service.IXLSXService) *ServerController {
+	return &ServerController{service: serverService, cacheService: cacheService, xlsxService: xlsxService}
 }
 
 func (controller *ServerController) GetServer(c *gin.Context) {
-	logger := logger.NewLogger()
 	queryParam := &dto.QueryParam{}
 	if err := c.ShouldBindQuery(queryParam); err != nil {
 		c.JSON(400, gin.H{"error": err.Error()})
 		return
 	}
-	logger.Info("GetServer")
 	servers := controller.service.GetServer(queryParam)
 	c.JSON(200, servers)
 	return
@@ -43,23 +42,24 @@ func (controller *ServerController) GetServer(c *gin.Context) {
 
 func (controller *ServerController) UpdateServer(c *gin.Context) {
 	id_param := c.Param("id")
-	id, err := strconv.Atoi(id_param)
+	parseId, err := strconv.ParseInt(id_param, 10, 64)
+	id := int(parseId)
 	log := logger.NewLogger()
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to convert id: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": "Record not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found"})
 		return
 	}
 	server := controller.service.FindServerById(id)
 	if server == nil {
 		log.Error(fmt.Sprintf("Failed to find server: %d", id), zap.String("client", c.ClientIP()))
-		c.JSON(404, gin.H{"error": "Record not found"})
+		c.JSON(http.StatusNotFound, gin.H{"error": "Record not found"})
 		return
 	}
 	inputServer := &dto.InputServer{}
 	if err := c.ShouldBindJSON(inputServer); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind input server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	if inputServer.Name != "" {
@@ -74,7 +74,7 @@ func (controller *ServerController) UpdateServer(c *gin.Context) {
 	server.LastUpdated = time.Now()
 	if err := controller.service.UpdateServer(server); err != nil {
 		log.Error(fmt.Sprintf("Failed to update server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(500, gin.H{"error": err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
@@ -84,27 +84,32 @@ func (controller *ServerController) UpdateServer(c *gin.Context) {
 		log.Info(fmt.Sprintf("Set cache successfully: %s", "server:"+strconv.Itoa(int(server.ID))), zap.String("client", c.ClientIP()))
 	}
 	log.Info(fmt.Sprintf("Updated server: %+v", server), zap.String("client", c.ClientIP()))
-	c.JSON(200, server)
+	c.JSON(http.StatusOK, server)
 	return
 }
 func (controller *ServerController) DeleteServer(c *gin.Context) {
 	log := logger.NewLogger()
 	id_param := c.Param("id")
-	id, err := strconv.Atoi(id_param)
+	parseId, err := strconv.ParseInt(id_param, 10, 64)
+	id := int(parseId)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to convert id: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": "Record not found"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Record not found"})
 		return
 	}
 	err = controller.service.DeleteServerById(id)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to delete server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(500, gin.H{"error": err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	controller.cacheService.Set("server:"+strconv.Itoa(id), nil)
+	if err := controller.cacheService.Set("server:"+strconv.Itoa(id), nil); err != nil {
+		log.Error(fmt.Sprintf("Failed to set cache: %s", err.Error()), zap.String("client", c.ClientIP()))
+	} else {
+		log.Info(fmt.Sprintf("Set cache successfully: %s", "server:"+strconv.Itoa(id)), zap.String("client", c.ClientIP()))
+	}
 	log.Info(fmt.Sprintf("Deleted server: %d", id), zap.String("client", c.ClientIP()))
-	c.JSON(200, gin.H{"message": "Record deleted successfully"})
+	c.JSON(http.StatusOK, gin.H{"message": "Record deleted successfully"})
 	return
 }
 func (controller *ServerController) CreateServer(c *gin.Context) {
@@ -114,12 +119,12 @@ func (controller *ServerController) CreateServer(c *gin.Context) {
 	//
 	if err := c.ShouldBindJSON(inputServer); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind input server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	if err := validate.Struct(inputServer); err != nil {
 		log.Error(fmt.Sprintf("Failed to validate input server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	now := time.Now()
@@ -132,18 +137,17 @@ func (controller *ServerController) CreateServer(c *gin.Context) {
 	}
 	if err := controller.service.CreateServer(server); err != nil {
 		log.Error(fmt.Sprintf("Failed to create server: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(500, gin.H{"error": err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	allServersString, err := json.Marshal(controller.service.GetAllServers())
-	if err != nil {
-		log.Error(fmt.Sprintf("Failed to marshal all servers: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(500, gin.H{"error": err.Error()})
-		return
+	allServersString, _ := json.Marshal(controller.service.GetAllServers())
+	if err := controller.cacheService.Set("server:all", allServersString); err != nil {
+		log.Error("Failed to set all servers")
+	} else {
+		log.Info(fmt.Sprintf("Set all servers %s", allServersString))
 	}
-	controller.cacheService.Set("server:all", allServersString)
 	log.Info(fmt.Sprintf("Created server: %+v", server), zap.String("client", c.ClientIP()))
-	c.JSON(200, server)
+	c.JSON(http.StatusOK, server)
 	return
 }
 
@@ -152,48 +156,56 @@ func (controller *ServerController) ExportServers(c *gin.Context) {
 	queryParam := &dto.QueryParam{}
 	if err := c.ShouldBindQuery(queryParam); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind query param: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	servers := controller.service.GetServer(queryParam)
-	service := service.NewXLSXService()
-	exportURL, err := service.ExportXLSX(servers)
+	exportURL, err := controller.xlsxService.ExportXLSX(servers)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to export: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(500, gin.H{"error": err.Error()})
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 	log.Info(fmt.Sprintf("Exported successfully: %s", exportURL), zap.String("client", c.ClientIP()))
-	c.JSON(200, gin.H{"message": "Exported successfully", "url": exportURL})
+	c.JSON(http.StatusOK, gin.H{"message": "Exported successfully", "url": exportURL})
 }
 func (controller *ServerController) ImportServers(c *gin.Context) {
 	log := logger.NewLogger()
 	file, header, err := c.Request.FormFile("input")
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to get file from request: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": "Cannot get file from request"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Cannot get file from request"})
 		return
 	}
 	parts := strings.Split(header.Filename, ".")
 	if len(parts) < 2 || parts[len(parts)-1] != "xlsx" {
 		log.Error(fmt.Sprintf("Invalid file format: %s", header.Filename), zap.String("client", c.ClientIP()))
-		c.JSON(400, gin.H{"error": "Invalid file format"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid file format"})
 		return
 	}
 	currentTimeF := time.Now().Format("06-01-02_15-04-05")
-	tmpFilePath := "./tmp/" + currentTimeF + "_" + header.Filename
+	tmpFilePath := "/mnt/c/Users/luyen/Desktop/vcs-sms/vcs-sms/tmp/" + currentTimeF + "_" + header.Filename
 	out, err := os.Create(tmpFilePath)
 	if err != nil {
+		fmt.Println(err.Error())
 		log.Error(fmt.Sprintf("Failed to create file: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create file"})
+		return
 	}
 	defer out.Close()
 	_, err = io.Copy(out, file)
 	if err != nil {
-		log.Error(fmt.Sprintf("Failed to copy file: %s", err.Error()), zap.String("client", c.ClientIP()))
+		log.Error(fmt.Sprintf(": %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to copy file"})
+		return
 	}
 
-	rows, err := service.NewXLSXService().ImportXLSX(tmpFilePath)
-
+	rows, err := controller.xlsxService.ImportXLSX(tmpFilePath)
+	if err != nil {
+		log.Error(fmt.Sprintf("Failed to import file: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to import file"})
+		return
+	}
 	successCount := 0
 	failureCount := 0
 	successNames := []string{}
@@ -211,21 +223,18 @@ func (controller *ServerController) ImportServers(c *gin.Context) {
 			CreatedTime: currentTime,
 		}
 		if err := validate.Struct(server); err != nil {
+			failureCount++
+		} else {
 			if err1 := controller.service.CreateServer(server); err1 != nil {
 				failureCount++
 			} else {
 				successCount++
 				successNames = append(successNames, server.Name)
 			}
-		} else {
-			failureCount++
 		}
 
 	}
-	allServersString, err := json.Marshal(controller.service.GetAllServers())
-	if err != nil {
-		log.Error(fmt.Sprintf("Failed to marshal all servers: %s", err.Error()), zap.String("client", c.ClientIP()))
-	}
+	allServersString, _ := json.Marshal(controller.service.GetAllServers())
 	if err := controller.cacheService.Set("server:all", allServersString); err != nil {
 		log.Error(fmt.Sprintf("Failed to set cache: %s", err.Error()), zap.String("client", c.ClientIP()))
 	} else {

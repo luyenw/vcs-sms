@@ -13,6 +13,11 @@ import (
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 )
 
+type IReportService interface {
+	SendReport(startMils int64, endMils int64, to []string) error
+	PeriodicReport(interval time.Duration)
+}
+
 type ReportService struct {
 	esService             *ESService
 	registeredMailService *RegisteredMailService

@@ -11,6 +11,12 @@ type CacheRepository interface {
 	Set(ctx context.Context, key string, value interface{}, expiration time.Duration) *redis.StatusCmd
 	Get(ctx context.Context, key string) *redis.StringCmd
 }
+
+type ICacheService interface {
+	Set(key string, value interface{}) error
+	Get(key string) (string, error)
+}
+
 type CacheService struct {
 	cache CacheRepository
 }

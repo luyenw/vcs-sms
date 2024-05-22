@@ -14,11 +14,11 @@ import (
 )
 
 type AuthController struct {
-	service    *service.UserService
-	jwtService *service.JWTService
+	service    service.IUserService
+	jwtService service.IJWTService
 }
 
-func NewAuthController(service *service.UserService, jwtService *service.JWTService) *AuthController {
+func NewAuthController(service service.IUserService, jwtService service.IJWTService) *AuthController {
 	return &AuthController{service: service, jwtService: jwtService}
 }
 

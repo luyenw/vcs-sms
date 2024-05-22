@@ -13,6 +13,11 @@ import (
 	"github.com/xuri/excelize/v2"
 )
 
+type IXLSXService interface {
+	ExportXLSX(servers []entity.Server) (string, error)
+	ImportXLSX(filePath string) ([][]string, error)
+}
+
 type XLSXService struct {
 	gcpService *storage.Client
 }

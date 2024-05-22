@@ -10,7 +10,10 @@ import (
 )
 
 func (r *Router) InitServerRoute() {
-	serverController := controller.NewServerController(service.NewServerService(sql.GetPostgres()), service.NewCacheService(cache.GetRedis()))
+	serverController := controller.NewServerController(
+		service.NewServerService(sql.GetPostgres()),
+		service.NewCacheService(cache.GetRedis()),
+		service.NewXLSXService())
 
 	serverRouter := r.Group("/servers")
 	serverRouter.GET("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.GetServer)

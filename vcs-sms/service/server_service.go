@@ -8,6 +8,15 @@ import (
 	"vcs-sms/repo"
 )
 
+type IServerService interface {
+	CreateServer(server *entity.Server) error
+	DeleteServerById(id int) error
+	FindServerById(id int) *entity.Server
+	GetAllServers() []entity.Server
+	GetServer(queryParam *dto.QueryParam) []entity.Server
+	UpdateServer(server *entity.Server) error
+}
+
 type ServerService struct {
 	DB repo.IDatabase
 }
