@@ -60,14 +60,13 @@ func (h *HealthCheckController) HealthCheck() {
 	log := logger.NewLogger()
 	h.allServerOffByDefault()
 	jobs := make(chan int, 100)
-	ticker := time.NewTicker(5 * time.Second)
+	ticker := time.NewTicker(1 * time.Minute)
 	quit := make(chan struct{})
 	go func() {
 		for {
 			serversString, err := h.cacheService.Get("server:all")
 			if err != nil {
 				log.Error(fmt.Sprintf("Error getting server:all from cache: %v", err))
-				// log.Println("Error getting server:all from cache, ", err)
 			}
 			servers := []entity.Server{}
 			if err := json.Unmarshal([]byte(serversString), &servers); err != nil {
@@ -90,18 +89,16 @@ func (h *HealthCheckController) HealthCheck() {
 	}()
 
 	go func() {
-		numWokers := 5
+		numWokers := 10
 		for w := 0; w < numWokers; w++ {
 			go func() {
 				for job := range jobs {
 					serverString, err := h.cacheService.Get(fmt.Sprintf("server:%d", job))
 					if err != nil {
 						log.Error(fmt.Sprintf("Error getting server:all from cache: %v", err))
-						// log.Println("Error getting server:all from cache, ", err)
 					}
 					cachedServer := &entity.Server{}
 					if err := json.Unmarshal([]byte(serverString), cachedServer); err != nil {
-						// log.Println(err)
 						log.Error(fmt.Sprintf("Error unmarshalling server: %v", err))
 						server := h.serverService.FindServerById(job)
 						serverString, _ := json.Marshal(server)
@@ -110,7 +107,6 @@ func (h *HealthCheckController) HealthCheck() {
 					cachedServer.Status = h.hcService.HealthCheck(cachedServer.IPv4)
 					cachedServer.LastUpdated = time.Now()
 					if err := h.serverService.DB.Table("servers").Where("id=?", job).Update("status", cachedServer.Status).Update("last_updated", cachedServer.LastUpdated).Error; err != nil {
-						// log.Println(err)
 						log.Error(fmt.Sprintf("Error updating server: %v", err))
 					}
 					doc := entity.ServerDoc{

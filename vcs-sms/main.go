@@ -7,6 +7,7 @@ import (
 	"vcs-sms/config/logger"
 	"vcs-sms/route"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
@@ -24,6 +25,14 @@ func main() {
 
 	gin.SetMode(gin.ReleaseMode)
 	router := route.NewRouter(gin.Default())
+	router.Static("static", "./api-spec")
+	config := cors.DefaultConfig()
+	config.AddAllowHeaders("Authorization")
+	config.AddAllowHeaders("Content-Type")
+	config.AllowCredentials = true
+	config.AllowAllOrigins = true
+	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
+	router.Use(cors.New(config))
 	router.InitServerRoute()
 	router.InitAuthRoute()
 	router.InitReportRoute()

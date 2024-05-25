@@ -56,8 +56,23 @@ func (service *ServerService) GetServer(queryParam *dto.QueryParam) []entity.Ser
 	if queryParam.Page == 0 {
 		queryParam.Page = 1
 	}
-	if err := service.DB.Order(queryParam.SortBy + " " + queryParam.Order).Offset((queryParam.Page - 1) * queryParam.PageSize).Limit(queryParam.PageSize).Find(&servers).Error; err != nil {
-		fmt.Println(err.Error())
+	db := service.DB.Model(&entity.Server{})
+	if queryParam.Name != "" {
+		db = db.Where("name LIKE ?", "%"+queryParam.Name+"%")
+	}
+	if queryParam.Status != "" {
+		var status int
+		if queryParam.Status == "on" {
+			status = 1
+		} else {
+			status = 0
+		}
+		db = db.Where("status = ?", status)
+	}
+	if queryParam.IPv4 != "" {
+		db = db.Where("ipv4 LIKE ?", "%"+queryParam.IPv4+"%")
+	}
+	if err := db.Order(queryParam.SortBy + " " + queryParam.Order).Offset((queryParam.Page - 1) * queryParam.PageSize).Limit(queryParam.PageSize).Find(&servers).Error; err != nil {
 		return []entity.Server{}
 	}
 	return servers

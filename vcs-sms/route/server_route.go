@@ -16,9 +16,9 @@ func (r *Router) InitServerRoute() {
 		service.NewXLSXService())
 
 	serverRouter := r.Group("/servers")
-	serverRouter.GET("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.GetServer)
+	serverRouter.GET("", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.GetServer)
 	serverRouter.GET("/export", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.ExportServers)
-	serverRouter.POST("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.CreateServer)
+	serverRouter.POST("", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ), serverController.CreateServer)
 	serverRouter.POST("/import", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ_WRITE), serverController.ImportServers)
 	serverRouter.PATCH("/:id", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ_WRITE), serverController.UpdateServer)
 	serverRouter.DELETE("/:id", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_SERVER_READ_WRITE), serverController.DeleteServer)

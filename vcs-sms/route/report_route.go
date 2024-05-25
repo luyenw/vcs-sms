@@ -22,5 +22,5 @@ func (r *Router) InitReportRoute() {
 	reportController.PeriodicReport(24 * time.Hour)
 	reportRouter := r.Group("/report")
 
-	reportRouter.POST("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_REPORT_READ), reportController.SendReport)
+	reportRouter.POST("", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_REPORT_READ), reportController.SendReport)
 }

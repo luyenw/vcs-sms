@@ -48,7 +48,7 @@ func (controller *UserController) CreateUser(c *gin.Context) {
 		return
 	}
 	log.Info(fmt.Sprintf("User created successfully: %s", createUserRequest.Username), zap.String("client", c.ClientIP()))
-	c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
+	c.JSON(http.StatusOK, gin.H{"message": "User created successfully", "data": createUserRequest})
 }
 
 func (controller *UserController) UpdateUserScope(c *gin.Context) {
@@ -82,6 +82,9 @@ func (controller *UserController) UpdateUserScope(c *gin.Context) {
 	}
 	fmt.Println(err)
 	log.Info(fmt.Sprintf("User scope updated successfully: %d", id), zap.String("client", c.ClientIP()))
-	c.JSON(http.StatusOK, gin.H{"message": "User scope updated successfully"})
+	c.JSON(http.StatusOK, gin.H{
+		"data":    controller.service.FindUserByID(id),
+		"message": "User scope updated successfully",
+	})
 	return
 }

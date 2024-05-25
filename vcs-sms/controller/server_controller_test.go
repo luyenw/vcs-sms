@@ -416,8 +416,8 @@ func TestExportServers(t *testing.T) {
 		serverController := NewServerController(mockServerService, mockCacheService, mockXLSXService)
 		router := config.GetTestGin()
 		router.GET("/exportServer", serverController.ExportServers)
-		req, _ := http.NewRequest("GET", "/exportServer?page=1", nil)
-		mockServerService.On("GetServer", &dto.QueryParam{Page: 1}).Return([]entity.Server{})
+		req, _ := http.NewRequest("GET", "/exportServer?page_size=10&page=1", nil)
+		mockServerService.On("GetServer", &dto.QueryParam{Page: 1, PageSize: 10}).Return([]entity.Server{})
 		mockXLSXService.On("ExportXLSX", mock.Anything).Return("url", nil)
 		w := httptest.NewRecorder()
 		router.ServeHTTP(w, req)
@@ -523,7 +523,7 @@ func TestImportServers(t *testing.T) {
 		w := httptest.NewRecorder()
 		router.ServeHTTP(w, req)
 		assert.Equal(t, http.StatusOK, w.Code)
-		assert.Equal(t, "{\"failure_count\":1,\"success_count\":0,\"success_names\":[]}", w.Body.String())
+		assert.Equal(t, "{\"data\":{\"failure_count\":1,\"success_count\":0,\"success_names\":[]},\"message\":\"Imported successfully\"}", w.Body.String())
 	})
 	t.Run("Service error", func(t *testing.T) {
 		mockServerService := new(MockServerService)
@@ -547,7 +547,7 @@ func TestImportServers(t *testing.T) {
 		w := httptest.NewRecorder()
 		router.ServeHTTP(w, req)
 		assert.Equal(t, http.StatusOK, w.Code)
-		assert.Equal(t, "{\"failure_count\":1,\"success_count\":0,\"success_names\":[]}", w.Body.String())
+		assert.Equal(t, "{\"data\":{\"failure_count\":1,\"success_count\":0,\"success_names\":[]},\"message\":\"Imported successfully\"}", w.Body.String())
 	})
 	t.Run("Success", func(t *testing.T) {
 		mockServerService := new(MockServerService)

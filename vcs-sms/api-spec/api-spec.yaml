@@ -30,6 +30,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /auth/login:
     post:
       summary: Login a user
@@ -54,6 +60,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
   /report:
     post:
       summary: Send a report
@@ -61,7 +73,6 @@ paths:
         - report
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_REPORT_READ]
       requestBody:
         required: true
         content:
@@ -77,39 +88,40 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /server:
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /servers:
     get:
       summary: Get server information
       tags:
         - server
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ]
+      parameters:
+        - $ref: '#/components/parameters/PageSize'
+        - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/Sort'
+        - $ref: '#/components/parameters/Order'
+        - $ref: '#/components/parameters/Name'
+        - $ref: '#/components/parameters/Ipv4'
+        - $ref: '#/components/parameters/Status'
       responses:
         '200':
           description: Server information retrieved successfully
-        '400':
-          description: Bad request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
-    post:
-      summary: Create a new server
-      tags:
-        - server
-      security:
-        - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ]
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateServerRequest'
-      responses:
-        '200':
-          description: Server created successfully
+                $ref: '#/components/schemas/GetServersResponse'
         '400':
           description: Bad request
           content:
@@ -122,17 +134,64 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /server/export:
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      summary: Create a new server
+      tags:
+        - server
+      security:
+        - TokenAuthorization: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateServerRequest'
+      responses:
+        '200':
+          description: Server created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateServerResponse'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /servers/export:
     get:
       summary: Export servers
       tags:
         - server
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ]
       parameters:
         - $ref: '#/components/parameters/PageSize'
         - $ref: '#/components/parameters/Page'
+        - $ref: '#/components/parameters/Sort'
+        - $ref: '#/components/parameters/Order'
+        - $ref: '#/components/parameters/Name'
+        - $ref: '#/components/parameters/Ipv4'
+        - $ref: '#/components/parameters/Status'
       responses:
         '200':
           description: Servers exported successfully
@@ -152,14 +211,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /server/import:
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /servers/import:
     post:
       summary: Import servers
       tags:
         - server
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ_WRITE]
       requestBody:
         required: true
         content:
@@ -185,14 +249,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
-  /server/{id}:
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /servers/{id}:
     patch:
       summary: Update a server
       tags:
         - server
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ_WRITE]
       parameters:
         - in: path
           name: id
@@ -209,17 +278,34 @@ paths:
       responses:
         '200':
           description: Server updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateServerRequest'
         '400':
           description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
         '401':
           description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
     delete:
       summary: Delete a server
       tags:
         - server
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_SERVER_READ_WRITE]
       parameters:
         - in: path
           name: id
@@ -234,14 +320,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
-  /user:
+  /users/:
     post:
       summary: Create a new user
       tags:
         - user
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_USER_READ_WRITE]
       requestBody:
         required: true
         content:
@@ -255,14 +340,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
-  /user/{id}/scopes:
+  /users/{id}/scopes:
     put:
       summary: Update user scopes
       tags:
         - user
       security:
         - TokenAuthorization: []
-        - CheckScope: [API_USER_READ_WRITE]
       parameters:
         - in: path
           name: id
@@ -289,10 +373,6 @@ components:
       type: apiKey
       in: header
       name: Authorization
-    CheckScope:
-      type: apiKey
-      in: header
-      name: X-Scope
   parameters:
     PageSize:
       in: query
@@ -310,6 +390,46 @@ components:
         default: 1
       required: false
       description: Page number
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        default: created_time
+      required: false
+      description: Sort by field
+    Order:
+      in: query
+      name: order
+      schema:
+        type: string
+        default: desc
+        enum: [asc, desc]
+      required: false
+      description: Order by field
+    Name: 
+      in: query
+      name: name
+      schema:
+        type: string
+        enum: [server_name, status, ipv4, created_time]
+      required: false
+      description: Server name
+    Ipv4:
+      in: query
+      name: ipv4
+      schema:
+        type: string
+      required: false
+      description: Server ipv4
+    Status:
+      in: query
+      name: status
+      schema:
+        type: string
+        enum: ["on", "off"]
+      required: false
+      description: Server status
   schemas:
     RegisterRequest:
       type: object
@@ -358,6 +478,8 @@ components:
     ExportServersResponse:
       type: object
       properties:
+        message:
+          type: string
         url:
           type: string
     ImportServersRequest:
@@ -368,14 +490,18 @@ components:
     ImportServersResponse:
       type: object
       properties:
-        success_count:
-          type: integer
-        failure_count:
-          type: integer
-        success_names:
-          type: array
-          items:
-            type: string
+        message:
+          type: string
+        data:
+          properties:
+            success_count:
+              type: integer
+            failure_count:
+              type: integer
+            success_names:
+              type: array
+              items:
+                type: string
     UpdateServerRequest:
       type: object
       properties:
@@ -401,16 +527,59 @@ components:
     UpdateUserScopeRequest:
       type: object
       properties:
-        scopes:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                example: "api-server:read-write"
+        message:
+          type: string
+        data:
+          properties:
+            username:
+              type: string
+            password:
+              type: string
+            scopes:
+              type: array
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    example: "api-server:read-write"
     ErrorResponse:  
       type: object
       properties:
         message:
           type: string
+    CreateServerResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          properties:
+            ID:
+              type: string
+            Name:
+              type: string
+            Ipv4:
+              type: string
+            Status:
+              type: integer
+            CreatedTime:
+              type: string
+    GetServersResponse:
+      type: object
+      properties:
+        message:
+          type: string
+        data:
+          properties:
+            ID:
+              type: string
+            Name:
+              type: string
+            Ipv4:
+              type: string
+            Status:
+              type: integer
+            CreatedTime:
+              type: string
+    

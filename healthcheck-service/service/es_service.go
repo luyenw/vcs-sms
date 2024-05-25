@@ -49,7 +49,7 @@ func (service ESService) InsertInBatch(doc interface{}) {
 		DocumentID: uuid.New().String(),
 		Body:       bytes.NewReader(data),
 		OnSuccess: func(ctx context.Context, item esutil.BulkIndexerItem, res esutil.BulkIndexerResponseItem) {
-			// log.Println(res)
+			log.Info(fmt.Sprintf("Document added to the indexer: %s", res.Result))
 		},
 		OnFailure: func(ctx context.Context, item esutil.BulkIndexerItem, res esutil.BulkIndexerResponseItem, err error) {
 			// log.Println(err)
@@ -73,7 +73,7 @@ func (service *ESService) CalculateUptime(startMils int64, endMils int64) []dto.
 		"query": {"range": {"timestamp": {"gte": %d, "lte": %d}}},
 		"aggs": {
 		"server": {
-		"terms": {"field": "server.ID", "size": 10000},
+		"terms": {"field": "server.ID", "size": 100000},
 		"aggs": {
 		"uptime": {
 		"scripted_metric": {

@@ -30,13 +30,20 @@ func NewServerController(serverService service.IServerService, cacheService serv
 }
 
 func (controller *ServerController) GetServer(c *gin.Context) {
+	log := logger.NewLogger()
 	queryParam := &dto.QueryParam{}
 	if err := c.ShouldBindQuery(queryParam); err != nil {
-		c.JSON(400, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	validate := validator.New()
+	if err := validate.Struct(queryParam); err != nil {
+		log.Error(fmt.Sprintf("Failed to validate query param: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	servers := controller.service.GetServer(queryParam)
-	c.JSON(200, servers)
+	c.JSON(http.StatusOK, gin.H{"total": len(servers), "data": servers})
 	return
 }
 
@@ -83,8 +90,9 @@ func (controller *ServerController) UpdateServer(c *gin.Context) {
 	} else {
 		log.Info(fmt.Sprintf("Set cache successfully: %s", "server:"+strconv.Itoa(int(server.ID))), zap.String("client", c.ClientIP()))
 	}
+	controller.cacheService.Set("server:all", nil)
 	log.Info(fmt.Sprintf("Updated server: %+v", server), zap.String("client", c.ClientIP()))
-	c.JSON(http.StatusOK, server)
+	c.JSON(http.StatusOK, gin.H{"message": "Record updated successfully", "data": server})
 	return
 }
 func (controller *ServerController) DeleteServer(c *gin.Context) {
@@ -108,6 +116,7 @@ func (controller *ServerController) DeleteServer(c *gin.Context) {
 	} else {
 		log.Info(fmt.Sprintf("Set cache successfully: %s", "server:"+strconv.Itoa(id)), zap.String("client", c.ClientIP()))
 	}
+	controller.cacheService.Set("server:all", nil)
 	log.Info(fmt.Sprintf("Deleted server: %d", id), zap.String("client", c.ClientIP()))
 	c.JSON(http.StatusOK, gin.H{"message": "Record deleted successfully"})
 	return
@@ -147,7 +156,7 @@ func (controller *ServerController) CreateServer(c *gin.Context) {
 		log.Info(fmt.Sprintf("Set all servers %s", allServersString))
 	}
 	log.Info(fmt.Sprintf("Created server: %+v", server), zap.String("client", c.ClientIP()))
-	c.JSON(http.StatusOK, server)
+	c.JSON(http.StatusOK, gin.H{"message": "Record created successfully", "data": server})
 	return
 }
 
@@ -156,6 +165,12 @@ func (controller *ServerController) ExportServers(c *gin.Context) {
 	queryParam := &dto.QueryParam{}
 	if err := c.ShouldBindQuery(queryParam); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind query param: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	validate := validator.New()
+	if err := validate.Struct(queryParam); err != nil {
+		log.Error(fmt.Sprintf("Failed to validate query param: %s", err.Error()), zap.String("client", c.ClientIP()))
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
@@ -243,8 +258,11 @@ func (controller *ServerController) ImportServers(c *gin.Context) {
 
 	log.Info(fmt.Sprintf("Imported successfully: %d success, %d failure", successCount, failureCount), zap.String("client", c.ClientIP()))
 	c.JSON(http.StatusOK, gin.H{
-		"failure_count": failureCount,
-		"success_count": successCount,
-		"success_names": successNames,
+		"message": "Imported successfully",
+		"data": gin.H{
+			"failure_count": failureCount,
+			"success_count": successCount,
+			"success_names": successNames,
+		},
 	})
 }

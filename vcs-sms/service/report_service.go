@@ -115,8 +115,8 @@ func (service *ReportService) PeriodicReport(interval time.Duration) {
 	log := logger.NewLogger()
 	jobTicker := util.JobTicker{
 		INTERVAL_PERIOD: interval,
-		HOUR_TO_TICK:    11,
-		MINUTE_TO_TICK:  03,
+		HOUR_TO_TICK:    9,
+		MINUTE_TO_TICK:  45,
 		SECOND_TO_TICK:  0,
 	}
 	jobTicker.DoPeriodicTask(
@@ -126,6 +126,7 @@ func (service *ReportService) PeriodicReport(interval time.Duration) {
 			for _, email := range registeredEmails {
 				mails = append(mails, email.Email)
 			}
+			fmt.Println(mails)
 			err := service.SendReport(time.Now().UnixMilli()-time.Duration(24*time.Hour).Milliseconds(), time.Now().UnixMilli(), mails)
 			if err != nil {
 				log.Error(fmt.Sprintf("Error sending periodic report: %s", err))
