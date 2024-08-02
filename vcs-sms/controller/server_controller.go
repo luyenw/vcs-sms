@@ -90,7 +90,7 @@ func (controller *ServerController) UpdateServer(c *gin.Context) {
 	} else {
 		log.Info(fmt.Sprintf("Set cache successfully: %s", "server:"+strconv.Itoa(int(server.ID))), zap.String("client", c.ClientIP()))
 	}
-	controller.cacheService.Set("server:all", nil)
+	controller.cacheService.Set("server:all", controller.service.GetAllServers())
 	log.Info(fmt.Sprintf("Updated server: %+v", server), zap.String("client", c.ClientIP()))
 	c.JSON(http.StatusOK, gin.H{"message": "Record updated successfully", "data": server})
 	return
@@ -178,6 +178,7 @@ func (controller *ServerController) ExportServers(c *gin.Context) {
 	exportURL, err := controller.xlsxService.ExportXLSX(servers)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to export: %s", err.Error()), zap.String("client", c.ClientIP()))
+		fmt.Println(err)
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -199,7 +200,7 @@ func (controller *ServerController) ImportServers(c *gin.Context) {
 		return
 	}
 	currentTimeF := time.Now().Format("06-01-02_15-04-05")
-	tmpFilePath := "/mnt/c/Users/luyen/Desktop/vcs-sms/vcs-sms/tmp/" + currentTimeF + "_" + header.Filename
+	tmpFilePath := "./tmp/" + currentTimeF + "_" + header.Filename
 	out, err := os.Create(tmpFilePath)
 	if err != nil {
 		fmt.Println(err.Error())

@@ -1,0 +1,41 @@
+{"level":"[ERROR]","time":"2024-07-08 10:44:27","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 10:47:39","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 10:52:57","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 10:53:58","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:06:04","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:07:30","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:09:44","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:10:52","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:11:23","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:23:01","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:24:28","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:26:26","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:27:33","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:34:30","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:37:22","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:39:09","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 11:42:05","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:28:58","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:28:58","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[INFO]","time":"2024-07-08 16:28:58","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[ERROR]","time":"2024-07-08 16:28:58","caller":"service/xlsx_io_service.go:87","message":"Error opening file: open ../tmp/24-05-04_11-37-17_template.xlsxxx: no such file or directory"}
+{"level":"[ERROR]","time":"2024-07-08 16:28:58","caller":"service/xlsx_io_service.go:95","message":"Error getting rows: sheet Sheet1 does not exist"}
+{"level":"[ERROR]","time":"2024-07-08 16:31:00","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:31:00","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[INFO]","time":"2024-07-08 16:31:00","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[ERROR]","time":"2024-07-08 16:31:00","caller":"service/xlsx_io_service.go:87","message":"Error opening file: open ../tmp/24-05-04_11-37-17_template.xlsxxx: no such file or directory"}
+{"level":"[ERROR]","time":"2024-07-08 16:31:00","caller":"service/xlsx_io_service.go:95","message":"Error getting rows: sheet Sheet1 does not exist"}
+{"level":"[ERROR]","time":"2024-07-08 16:35:26","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:35:26","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:40:39","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:40:39","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:42:41","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:42:41","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:45:34","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:45:34","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:47:31","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:47:31","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:48:40","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:48:40","caller":"service/server_service.go:34","message":"Error getting all servers: error"}
+{"level":"[ERROR]","time":"2024-07-08 16:49:58","caller":"service/healthcheck_service.go:45","message":"Error running pinger: listen ip4:icmp : socket: operation not permitted"}
+{"level":"[ERROR]","time":"2024-07-08 16:49:58","caller":"service/server_service.go:34","message":"Error getting all servers: error"}

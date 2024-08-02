@@ -15,7 +15,7 @@ import (
 func (r *Router) InitReportRoute() {
 	reportController := controller.NewReportController(
 		service.NewReportService(service.NewESService(&repo.ESClient{Client: elasticsearch.GetESClient()}),
-			service.NewRegisteredMailService(),
+			service.NewRegisteredMailService(sql.GetPostgres()),
 			service.NewServerService(sql.GetPostgres()),
 			service.NewCacheService(cache.GetRedis())),
 	)

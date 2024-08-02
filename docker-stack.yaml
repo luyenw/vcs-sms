@@ -1,0 +1,180 @@
+version: '3.8'
+
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - "--api.insecure=true" 
+      - "--providers.docker=true"
+      - "--providers.docker.swarmMode=true"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.postgres.address=:5432"
+      - "--entrypoints.redis.address=:6379"
+      - "--entrypoints.elasticsearch.address=:9200"
+      - "--entrypoints.kafka.address=:9092"
+      - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=web"
+      - "--certificatesResolvers.myresolver.acme.storage=/letsencrypt/acme.json" 
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+      - "5432:5432"
+      - "6379:6379"
+      - "9200:9200"
+      - "9092:9092"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      - "traefik-certificates:/letsencrypt"
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+        - "traefik.http.services.traefik.loadbalancer.server.port=888" # required by swarm but not used.
+        - "traefik.http.routers.traefik.service=api@internal"
+        - "traefik.http.routers.traefik.entrypoints=web,websecure" # Sử dụng cả HTTP và HTTPS
+
+  postgres:
+    image: postgres:15.7-bullseye
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.tcp.routers.postgres.rule=HostSNI(`*`)"
+        - "traefik.tcp.routers.postgres.entryPoints=postgres"
+        - "traefik.tcp.routers.postgres.service=postgres"
+        - "traefik.tcp.services.postgres.loadbalancer.server.port=5432"
+    environment:
+      - POSTGRES_USER=checkpoint-project-client
+      - POSTGRES_PASSWORD=Luyendkdk1
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - traefik-public
+
+  redis:
+    image: redis:6.2-alpine
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.tcp.routers.redis.rule=HostSNI(`*`)"
+        - "traefik.tcp.routers.redis.entryPoints=redis"
+        - "traefik.tcp.routers.redis.service=redis"
+        - "traefik.tcp.services.redis.loadbalancer.server.port=6379"
+    volumes: 
+      - cache:/data
+    networks:
+      - traefik-public
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.13.0
+    environment:
+      - discovery.type=single-node
+      - ELASTIC_PASSWORD=Luyendkdk1
+      - xpack.security.enabled=false
+    deploy:
+      replicas: 1
+      labels: 
+        - "traefik.enable=true"
+        - "traefik.tcp.routers.elasticsearch.rule=HostSNI(`*`)"
+        - "traefik.tcp.routers.elasticsearch.entryPoints=elasticsearch"
+        - "traefik.tcp.routers.elasticsearch.service=elasticsearch"
+        - "traefik.tcp.services.elasticsearch.loadbalancer.server.port=9200"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+    networks:
+      - traefik-public
+
+  zoo1:
+    image: confluentinc/cp-zookeeper:7.3.2
+    hostname: zoo1
+    ports:
+      - "2181:2181"
+    volumes:
+      - zoo1:/var/lib/zookeeper/data
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_SERVERS: zoo1:2888:3888
+
+  kafka1:
+    image: confluentinc/cp-kafka:7.3.2
+    volumes:
+      - kafka1:/var/lib/kafka/data
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka1:19092,EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092,DOCKER://host.docker.internal:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,DOCKER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_ZOOKEEPER_CONNECT: "zoo1:2181"
+      KAFKA_BROKER_ID: 1
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=INFO,kafka.producer.async.DefaultEventHandler=INFO,state.change.logger=INFO"
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_JMX_PORT: 9999
+      KAFKA_JMX_HOSTNAME: ${DOCKER_HOST_IP:-127.0.0.1}
+      KAFKA_AUTHORIZER_CLASS_NAME: kafka.security.authorizer.AclAuthorizer
+      KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.tcp.routers.kafka.rule=HostSNI(`*`)"
+        - "traefik.tcp.routers.kafka.entryPoints=kafka"
+        - "traefik.tcp.routers.kafka.service=kafka"
+        - "traefik.tcp.services.kafka.loadbalancer.server.port=9092"
+
+  # kibana:
+  #   image: kibana:8.13.0
+  #   container_name: kibana
+  #   environment:
+  #     - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+  #   deploy:
+  #     replicas: 1
+  #     labels: 
+  #       - "traefik.enable=true"
+  #       - "traefik.http.routers.web.rule=PathPrefix('/kibana')"
+  #       - "traefik.http.routers.web.entryPoints=web,websecure"
+  #       - "traefik.http.services.kibana.loadbalancer.server.port=5601"
+  #   depends_on:
+  #     - elasticsearch
+  #   networks:
+  #     - traefik-public
+
+  web:
+    image: ichte/swarmtest:node
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 5
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.web.rule=PathPrefix(`/web`)" 
+        - "traefik.http.routers.web.entrypoints=web,websecure" 
+        - "traefik.http.services.web.loadbalancer.server.port=8085" 
+
+        - "traefik.http.middlewares.web-redirect.redirectscheme.scheme=https" 
+        - "traefik.http.routers.web-secure.rule=PathPrefix(`/web`)"
+        - "traefik.http.routers.web-secure.entrypoints=websecure" 
+        - "traefik.http.routers.web-secure.tls.certresolver=myresolver"
+
+networks:
+  traefik-public:
+    external: true
+
+volumes:
+  traefik-certificates:
+  pgdata:
+  cache:
+  esdata:
+  kafka1:

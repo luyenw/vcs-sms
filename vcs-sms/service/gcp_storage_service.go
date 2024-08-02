@@ -22,6 +22,7 @@ func (c *ClientUploader) UploadFileAndSetMetaData(file *os.File, object string) 
 	defer cancel()
 
 	wc := c.cli.Bucket(c.bucketName).Object(c.uploadPath + object).NewWriter(ctx)
+
 	if _, err := io.Copy(wc, file); err != nil {
 		return fmt.Errorf("io.Copy: %v", err)
 	}

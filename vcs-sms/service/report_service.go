@@ -7,7 +7,6 @@ import (
 	"time"
 	"vcs-sms/config/logger"
 	"vcs-sms/config/mq"
-	"vcs-sms/model/entity"
 	"vcs-sms/util"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
@@ -50,21 +49,7 @@ func (service *ReportService) SendReport(startMils int64, endMils int64, to []st
 	}
 	uptimeInfo := service.esService.CalculateUptime(startMils, endMils)
 
-	servers := []entity.Server{}
-	serversString, err := service.cacheService.Get("server:all")
-	if err != nil || serversString == "" {
-		servers = service.serverService.GetAllServers()
-		err = service.cacheService.Set("server:all", servers)
-		if err != nil {
-			return err
-		}
-	} else {
-		err = json.Unmarshal([]byte(serversString), &servers)
-		if err != nil {
-			return err
-		}
-	}
-
+	servers := service.serverService.GetAllServers()
 	serversUptimeInfo := []serverUptimeInfo{}
 	for _, server := range uptimeInfo {
 		for _, s := range servers {
@@ -104,7 +89,7 @@ func (service *ReportService) SendReport(startMils int64, endMils int64, to []st
 	p := mq.GetProducer()
 	topic := "demo-topic"
 	bytes, _ := json.Marshal(mailReq)
-	err = p.Produce(&kafka.Message{
+	err := p.Produce(&kafka.Message{
 		TopicPartition: kafka.TopicPartition{Topic: &topic, Partition: kafka.PartitionAny},
 		Value:          bytes,
 	}, nil)

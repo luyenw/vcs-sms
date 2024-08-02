@@ -1,0 +1,159 @@
+version: '3.7'
+services:
+  traefik:
+    image: traefik:v2.10
+    command:
+      - "--api.insecure=true" 
+      - "--providers.docker=true"
+      - "--providers.docker.swarmMode=true"
+      # - "--accesslog.filepath=./traefik-log/access.log"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.grpc.address=:50069"
+      # - "--entryPoints.websecure.address=:443"
+      # - "--certificatesResolvers.myresolver.acme.httpChallenge.entryPoint=web"
+      # - "--certificatesResolvers.myresolver.acme.storage=/letsencrypt/acme.json" 
+    ports:
+      - "80:80"
+      # - "443:443"
+      - "8085:8080"
+      - "50069:50069"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+      # - "traefik-certificates:/letsencrypt"
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.traefik.rule=Host(`traefik.localhost`)"
+        - "traefik.http.routers.traefik.service=api@internal"
+        - "traefik.http.services.traefik.loadbalancer.server.port=888"
+        - "traefik.http.routers.traefik.entrypoints=web" 
+
+  server-management-service:
+    image: luyend785/server-management-service:latest
+    environment:
+      - GRPC_HOST=172.29.119.193
+      - GRPC_PORT=50069
+      - DB_HOST=172.29.119.193
+      - DB_PASS=Luyendkdk1
+      - REDIS_HOST=172.29.119.193:6379
+      - REDIS_PWD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - ELASTIC_ENDPOINT=http://172.29.119.193:9200
+      - KAFKA_BOOTSTRAP_SERVERS=ssl://172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+      - GOOGLE_APPLICATION_CREDENTIALS=/usr/local/bin/gcpkey/secure-gizmo-420615-9aed8aa861d1.json
+    volumes:
+      - ./certs:/usr/local/bin/certs
+      - ./gcpkey:/usr/local/bin/gcpkey
+      - ./tmp:/usr/local/bin/tmp
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.sms.rule=PathPrefix(`/api`)"
+        - "traefik.http.routers.sms.middlewares=strip-prefix"
+        - "traefik.http.middlewares.strip-prefix.stripprefix.prefixes=/api"
+        - "traefik.http.services.sms.loadbalancer.server.port=8081"
+        - "traefik.http.routers.sms.entrypoints=web"
+
+  mail-service:
+    image: luyend785/mail-service:latest
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=ssl://172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+      - MAIL_PASSWORD=bsic skoa tdeq cexs
+    volumes:
+      - ./certs:/usr/local/bin/certs
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 1
+      labels: 
+        - "traefik.enable=false"
+    
+  healthcheck-worker:
+    image: luyend785/healthcheck-worker:0.0.2
+    environment:
+      - ELASTIC_ENDPOINT=http://172.29.119.193:9200
+      - DB_HOST=172.29.119.193
+      - DB_PASS=Luyendkdk1
+      - REDIS_HOST=172.29.119.193:6379
+      - REDIS_PWD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - KAFKA_BOOTSTRAP_SERVERS=ssl://172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+    volumes:
+      - ./certs:/usr/local/bin/certs
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 3
+      labels:
+        - "traefik.enable=false"
+
+  healthcheck-server:
+    image: luyend785/healthcheck-server:0.0.2
+    environment:
+      - DB_HOST=172.29.119.193
+      - DB_PASS=Luyendkdk1
+      - REDIS_HOST=172.29.119.193:6379
+      - ELASTIC_ENDPOINT=http://172.29.119.193:9200
+      - REDIS_PWD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - KAFKA_BOOTSTRAP_SERVERS=ssl://172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+    volumes:
+      - ./certs:/usr/local/bin/certs
+    networks:
+      - traefik-public
+    deploy:
+      replicas: 3
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.healthcheck.rule=PathPrefix(`/healthcheck`)"
+        - "traefik.http.services.healthcheck.loadbalancer.server.port=5000"
+        - "traefik.http.routers.healthcheck.entrypoints=web"
+
+        - "traefik.tcp.routers.grpc.rule=HostSNI(`*`)"
+        - "traefik.tcp.services.grpc.loadbalancer.server.port=50069"
+        - "traefik.tcp.routers.grpc.entrypoints=grpc"
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - "traefik.enable=false"
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    networks:
+      - traefik-public
+      
+volumes:
+  portainer_data:
+networks:
+  traefik-public:
+    external: true

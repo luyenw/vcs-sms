@@ -3,32 +3,18 @@ package service
 import (
 	"testing"
 	"vcs-sms/model/entity"
+	"vcs-sms/model/mock_entity"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/mock"
 )
 
 func TestGetAllRegisteredMails(t *testing.T) {
-	type input struct {
-	}
-	type output struct {
-		mails []entity.RegisteredEmail
-	}
-	tests := map[string]struct {
-		input
-		output
-	}{
-		"Test_1": {
-			input: input{},
-			output: output{
-				mails: []entity.RegisteredEmail{},
-			},
-		},
-	}
-	for name := range tests {
-		t.Run(name, func(t *testing.T) {
-			service := NewRegisteredMailService()
-			mails := service.GetAllRegisteredMails()
-			assert.NotNil(t, mails)
-		})
-	}
+	t.Run("Get All", func(t *testing.T) {
+		mockDB := mock_entity.NewMockDatabase()
+		mockDB.On("Find", &[]entity.RegisteredEmail{}, mock.Anything).Return(nil, []entity.RegisteredEmail{})
+		service := NewRegisteredMailService(mockDB)
+		mails := service.GetAllRegisteredMails()
+		assert.NotNil(t, mails)
+	})
 }

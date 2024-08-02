@@ -3,13 +3,13 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"mail-service/config"
 	"mail-service/config/logger"
 	"mail-service/config/mq"
 	"mail-service/service"
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"go.uber.org/zap"
@@ -21,6 +21,7 @@ type mailRequest struct {
 }
 
 func main() {
+	config.InitConfig()
 	log := logger.NewLogger()
 	log.Info("Server started")
 	signalChan := make(chan os.Signal, 1)
@@ -32,6 +33,7 @@ func main() {
 	}()
 
 	c := mq.GetConsumer()
+	fmt.Println(c)
 	mailService := service.NewMailService()
 
 	mailRequestChan := make(chan *kafka.Message, 100)
@@ -59,7 +61,7 @@ func main() {
 	}()
 
 	for {
-		msg, err := c.ReadMessage(time.Second)
+		msg, err := c.ReadMessage(-1)
 		if err == nil {
 			mailRequestChan <- msg
 		}

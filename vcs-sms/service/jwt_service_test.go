@@ -23,8 +23,11 @@ func TestGenerateToken(t *testing.T) {
 			input: input{
 				user: &entity.User{
 					Username: "luyendd",
-					Scopes: []entity.Scope{
-						{Name: "all"},
+					Role: entity.Role{
+						Name: "admin",
+						Scopes: []entity.Scope{
+							{Name: "all"},
+						},
 					},
 				},
 			},

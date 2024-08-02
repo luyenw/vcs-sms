@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  server-management-service:
+    network_mode: host
+    image: server-management-service
+    environment:
+      - DB_PASS=Luyendkdk1
+      - REDIS_HOST=localhost:6379
+      - REDIS_PWD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - ELASTIC_ENDPOINT=http://localhost:9200
+      - KAFKA_BOOTSTRAP_SERVERS=localhost:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+      - GOOGLE_APPLICATION_CREDENTIALS=/usr/local/bin/gcpkey/secure-gizmo-420615-9aed8aa861d1.json
+    volumes:
+      - /mnt/c/Users/luyen/Desktop/vcs-sms/certs:/usr/local/bin/certs
+      - /mnt/c/Users/luyen/Desktop/vcs-sms/gcpkey:/usr/local/bin/gcpkey
+      - /mnt/c/Users/luyen/Desktop/vcs-sms/vcs-sms/logs:/usr/local/bin/logs

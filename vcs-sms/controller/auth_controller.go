@@ -42,7 +42,7 @@ func (controller *AuthController) Register(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	err = controller.service.CreateNewUser(authRequest.Username, string(hashed), []entity.Scope{})
+	err = controller.service.CreateNewUser(authRequest.Username, string(hashed), entity.Role{ID: 1})
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to create user: %s", err.Error()), zap.String("client", c.ClientIP()))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user: " + err.Error()})
@@ -73,6 +73,7 @@ func (controller *AuthController) Login(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Wrong username or password"})
 		return
 	}
+	fmt.Printf("User: %+v\n", user)
 	accessToken, err := controller.jwtService.GenerateToken(&user)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to generate token: %s", err.Error()), zap.String("client", c.ClientIP()))

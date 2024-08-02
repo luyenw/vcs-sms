@@ -49,7 +49,7 @@ func TokenAuthorization() gin.HandlerFunc {
 			c.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized"})
 			c.Abort()
 		}
-		c.Set("scopes", user.Scopes)
+		c.Set("scopes", user.Role.Scopes)
 		c.Next()
 	}
 }

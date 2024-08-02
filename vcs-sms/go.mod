@@ -3,7 +3,9 @@ module vcs-sms
 go 1.21.6
 
 require (
+	github.com/caarlos0/env/v11 v11.1.0
 	github.com/elastic/go-elasticsearch/v8 v8.13.1
+	github.com/gin-contrib/cors v1.7.2
 	github.com/gin-gonic/gin v1.9.1
 	github.com/go-ping/ping v1.1.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
@@ -14,10 +16,7 @@ require (
 	gorm.io/gorm v1.25.10
 )
 
-require (
-	github.com/gin-contrib/cors v1.7.2 // indirect
-	go.uber.org/multierr v1.11.0 // indirect
-)
+require go.uber.org/multierr v1.11.0 // indirect
 
 require (
 	cloud.google.com/go v0.112.2 // indirect
@@ -54,9 +53,9 @@ require (
 	github.com/go-playground/validator/v10 v10.20.0
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.4 // indirect
+	github.com/golang/protobuf v1.5.4
 	github.com/google/s2a-go v0.1.7 // indirect
-	github.com/google/uuid v1.6.0
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.2 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.3 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
@@ -95,7 +94,7 @@ require (
 	golang.org/x/text v0.15.0 // indirect
 	google.golang.org/api v0.177.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240521202816-d264139d666e // indirect
-	google.golang.org/grpc v1.64.0 // indirect
+	google.golang.org/grpc v1.64.0
 	google.golang.org/protobuf v1.34.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

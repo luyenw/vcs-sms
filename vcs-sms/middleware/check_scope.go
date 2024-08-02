@@ -13,7 +13,7 @@ func CheckScope(scope string) gin.HandlerFunc {
 		log := logger.NewLogger()
 		scopes := c.MustGet("scopes")
 		for _, value := range scopes.([]entity.Scope) {
-			if value.Name == scope || value.Name == "root" {
+			if value.Name == scope || value.Name == "all" {
 				c.Next()
 				return
 			}

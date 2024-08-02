@@ -1,10 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"os/signal"
 	"syscall"
+	"vcs-sms/config"
 	"vcs-sms/config/logger"
+	"vcs-sms/config/mq"
+	"vcs-sms/config/rpc"
+	"vcs-sms/config/storage"
 	"vcs-sms/route"
 
 	"github.com/gin-contrib/cors"
@@ -13,6 +18,16 @@ import (
 )
 
 func main() {
+	config.InitConfig()
+
+	cli := storage.GetGCPStorage()
+	fmt.Printf("Client: %+v\n", cli)
+	p := mq.GetProducer()
+	fmt.Printf("Producer: %+v\n", p)
+	rpcClient := rpc.GetRpcClient()
+	fmt.Println(rpcClient)
+
+	fmt.Println("Hello, World!")
 	log := logger.NewLogger()
 	log.Info("Server started")
 	signalChan := make(chan os.Signal, 1)
@@ -33,6 +48,7 @@ func main() {
 	config.AllowAllOrigins = true
 	config.AllowMethods = []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"}
 	router.Use(cors.New(config))
+
 	router.InitServerRoute()
 	router.InitAuthRoute()
 	router.InitReportRoute()

@@ -41,17 +41,17 @@ func (controller *UserController) CreateUser(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	err = controller.service.CreateNewUser(createUserRequest.Username, string(hashed), createUserRequest.Scopes)
+	err = controller.service.CreateNewUser(createUserRequest.Username, string(hashed), createUserRequest.Role)
 	if err != nil {
 		log.Error(fmt.Sprintf("Failed to create user: %s", err.Error()), zap.String("client", c.ClientIP()))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create user: " + err.Error()})
 		return
 	}
 	log.Info(fmt.Sprintf("User created successfully: %s", createUserRequest.Username), zap.String("client", c.ClientIP()))
-	c.JSON(http.StatusOK, gin.H{"message": "User created successfully", "data": createUserRequest})
+	createdUser := controller.service.FindByUsername(createUserRequest.Username)
+	c.JSON(http.StatusOK, gin.H{"message": "User created successfully", "data": dto.UserEntity{&createdUser}.ToDTO()})
 }
-
-func (controller *UserController) UpdateUserScope(c *gin.Context) {
+func (controller *UserController) UpdateUserRole(c *gin.Context) {
 	log := logger.NewLogger()
 	idParam := c.Param("id")
 	parseId, err := strconv.ParseInt(idParam, 10, 64)
@@ -67,24 +67,27 @@ func (controller *UserController) UpdateUserScope(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "User not found"})
 		return
 	}
-	scopes := dto.UpdatePermissionRequest{}
-	if err := c.ShouldBindJSON(&scopes); err != nil {
-		fmt.Println(err)
+	roleDto := dto.UpdateRoleRequest{}
+	if err := c.ShouldBindJSON(&roleDto); err != nil {
 		log.Error(fmt.Sprintf("Failed to bind json: %s", err.Error()), zap.String("client", c.ClientIP()))
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	err = controller.service.UpdateUserScope(user, scopes.Scopes)
+	role, err := controller.service.FindRoleByName(roleDto.Role.Name)
 	if err != nil {
-		log.Error(fmt.Sprintf("Failed to update user scope: %s", err.Error()), zap.String("client", c.ClientIP()))
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update user scope: " + err.Error()})
+		log.Error(fmt.Sprintf("Failed to find role: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Role not found"})
 		return
 	}
-	fmt.Println(err)
-	log.Info(fmt.Sprintf("User scope updated successfully: %d", id), zap.String("client", c.ClientIP()))
+	err = controller.service.UpdateUserRole(user, role)
+	if err != nil {
+		log.Error(fmt.Sprintf("Failed to update user role: %s", err.Error()), zap.String("client", c.ClientIP()))
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to update user role: " + err.Error()})
+		return
+	}
+	log.Info(fmt.Sprintf("User role updated successfully: %d", id), zap.String("client", c.ClientIP()))
 	c.JSON(http.StatusOK, gin.H{
-		"data":    controller.service.FindUserByID(id),
-		"message": "User scope updated successfully",
+		"data":    dto.UserEntity{controller.service.FindUserByID(id)}.ToDTO(),
+		"message": "User role updated successfully",
 	})
-	return
 }

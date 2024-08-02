@@ -20,7 +20,7 @@ func NewJWTService() *JWTService {
 
 func (service *JWTService) GenerateToken(user *entity.User) (string, error) {
 	var scopes []string
-	for _, scope := range user.Scopes {
+	for _, scope := range user.Role.Scopes {
 		scopes = append(scopes, scope.Name)
 	}
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{

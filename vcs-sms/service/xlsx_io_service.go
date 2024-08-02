@@ -24,6 +24,7 @@ type XLSXService struct {
 
 func NewXLSXService() *XLSXService {
 	return &XLSXService{
+		// gcpService: nil,
 		gcpService: config.GetGCPStorage(),
 	}
 }
@@ -54,6 +55,7 @@ func (service *XLSXService) ExportXLSX(servers []entity.Server) (string, error) 
 		f.SetCellValue("Sheet1", "E"+fmt.Sprint(idx+3), server.LastUpdated.Format("2006-01-02 15:04:05"))
 	}
 	currentTimeF := time.Now().Format("06-01-02_15-04-05")
+	os.MkdirAll("./tmp/export", os.ModePerm)
 	exportPath := "./tmp/export/" + currentTimeF + ".xlsx"
 	f.SetActiveSheet(index)
 	if err := f.SaveAs(exportPath); err != nil {

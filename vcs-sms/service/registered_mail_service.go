@@ -1,19 +1,17 @@
 package service
 
 import (
-	"vcs-sms/config/sql"
 	"vcs-sms/model/entity"
-
-	"gorm.io/gorm"
+	"vcs-sms/repo"
 )
 
 type RegisteredMailService struct {
-	DB *gorm.DB
+	DB repo.IDatabase
 }
 
-func NewRegisteredMailService() *RegisteredMailService {
+func NewRegisteredMailService(db repo.IDatabase) *RegisteredMailService {
 	return &RegisteredMailService{
-		DB: sql.GetPostgres(),
+		DB: db,
 	}
 }
 

@@ -1,0 +1,20 @@
+docker swarm join --token SWMTKN-1-35yh2kuxxfjn3jw7imhg6vnlsebuus5i9a0nizl6ny2zwnszdk-6pz99vee4gdvragxuecnfv5zk 192.168.99.100:2377
+
+docker service create \
+  --name portainer \
+  --publish 9000:9000 \
+  --replicas=1 \
+  --constraint 'node.role == manager' \
+  --mount type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
+  --mount type=volume,src=portainer_data,dst=/data \
+  portainer/portainer-ce:latest \
+  -H unix:///var/run/docker.sock
+
+
+docker swarm join --token SWMTKN-1-262o6sjmikyp9s70wbc4ibpnmduw8big1u5m0plwc4wf8alu83-dq52wn6d6vj6fanshe4kldjoo 172.29.119.193:2377
+
+docker stack deploy -c compose.yaml demo
+docker stack remove demo
+
+
+portainer: 262o6sjmikyp9s70wbc4ibpnmduw8big1u5m0plwc4wf8alu83

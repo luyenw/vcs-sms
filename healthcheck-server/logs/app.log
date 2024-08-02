@@ -1,0 +1,140 @@
+{"level":"[INFO]","time":"2024-07-10 14:16:25","caller":"healthcheck-server/main.go:41","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-10 14:32:54","caller":"healthcheck-server/main.go:46","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-10 14:33:02","caller":"healthcheck-server/main.go:24","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-10 14:33:51","caller":"healthcheck-server/main.go:29","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-10 14:34:33","caller":"healthcheck-server/main.go:27","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-10 14:34:42","caller":"healthcheck-server/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-10 14:36:44","caller":"healthcheck-server/main.go:27","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-10 15:06:15","caller":"healthcheck-server/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-10 15:06:18","caller":"healthcheck-server/main.go:27","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-10 15:45:26","caller":"healthcheck-server/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-10 15:45:33","caller":"healthcheck-server/main.go:27","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 21:49:56","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 21:49:56","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 21:50:01","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:05:40","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:05:40","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-13 22:28:17","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:28:17","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-13 22:31:38","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:31:38","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 22:36:07","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:36:11","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:36:11","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 22:43:44","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:43:48","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:43:48","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 22:45:31","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:45:34","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:45:34","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 22:51:11","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:51:15","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:51:15","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-13 22:52:45","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:52:50","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:52:50","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-14 14:59:03","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:32:14","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:32:14","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-14 21:32:35","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:32:54","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:32:54","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-14 21:36:59","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:37:03","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:37:03","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-14 21:50:09","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:50:14","caller":"healthcheck-server/main.go:28","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:50:14","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-15 11:39:32","caller":"healthcheck-server/main.go:33","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 11:39:45","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 11:52:48","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 11:53:17","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 13:55:18","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 13:55:36","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:37:57","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:38:48","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 14:38:48","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[FATAL]","time":"2024-07-15 14:39:37","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 14:39:45","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 14:39:45","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:39:45","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[ERROR]","time":"2024-07-15 14:40:45","caller":"service/server_service.go:79","message":"Error updating servers: ERROR: invalid input syntax for type integer: \"192.168.1.85\" (SQLSTATE 22P02)"}
+{"level":"[ERROR]","time":"2024-07-15 14:41:45","caller":"service/server_service.go:79","message":"Error updating servers: ERROR: invalid input syntax for type integer: \"192.168.1.61\" (SQLSTATE 22P02)"}
+{"level":"[ERROR]","time":"2024-07-15 14:42:45","caller":"service/server_service.go:79","message":"Error updating servers: ERROR: invalid input syntax for type integer: \"192.168.1.83\" (SQLSTATE 22P02)"}
+{"level":"[FATAL]","time":"2024-07-15 14:43:40","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 14:43:47","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 14:43:47","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:43:47","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[INFO]","time":"2024-07-15 14:45:52","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 14:45:52","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:45:52","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[INFO]","time":"2024-07-15 14:54:03","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 14:54:03","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 14:54:03","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-15 15:11:37","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 15:11:42","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 15:11:42","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 15:11:42","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-15 15:18:25","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 15:33:40","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 15:33:40","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 15:33:40","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-15 15:37:39","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-15 15:38:18","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-15 15:38:18","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-15 15:38:19","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[INFO]","time":"2024-07-21 20:16:16","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-21 20:16:16","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-21 20:16:16","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-21 20:17:22","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-21 20:17:28","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-21 20:17:28","caller":"rpc/grpc.go:40","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-21 20:17:28","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-21 20:17:39","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:46:07","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:46:07","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 15:46:07","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 15:52:57","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:53:01","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:53:01","caller":"rpc/grpc.go:44","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 15:53:01","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 15:54:42","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:54:46","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:54:46","caller":"rpc/grpc.go:44","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 15:54:46","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 16:00:05","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 16:00:10","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 16:00:10","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 16:00:10","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 16:41:17","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 16:41:24","caller":"healthcheck-server/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 16:41:24","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 16:41:38","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 16:43:39","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 16:48:37","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 18:04:21","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 18:04:21","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 18:04:21","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 20:15:30","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 20:15:42","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 20:15:42","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 20:15:42","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 20:20:08","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 22:09:44","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 22:09:44","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-22 22:09:44","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-22 22:51:14","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-23 09:19:39","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-23 09:19:39","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-23 09:19:39","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-23 09:25:26","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-23 14:25:47","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-23 14:25:47","caller":"rpc/grpc.go:39","message":"listen tcp :50069: bind: address already in use"}
+{"level":"[INFO]","time":"2024-07-23 14:27:11","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-23 14:27:11","caller":"rpc/grpc.go:39","message":"listen tcp :50069: bind: address already in use"}
+{"level":"[INFO]","time":"2024-07-23 14:28:09","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-23 14:28:09","caller":"rpc/grpc.go:39","message":"listen tcp 0.0.0.0:50069: bind: address already in use"}
+{"level":"[INFO]","time":"2024-07-23 14:28:59","caller":"healthcheck-server/main.go:25","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-23 14:28:59","caller":"rpc/grpc.go:43","message":"GRPC server started"}
+{"level":"[INFO]","time":"2024-07-23 14:28:59","caller":"sql/posgres.go:39","message":"Connected to postgres database"}
+{"level":"[FATAL]","time":"2024-07-23 14:31:41","caller":"healthcheck-server/main.go:30","message":"Received signal, shutting down","signal":"interrupt"}

@@ -1,0 +1,704 @@
+{"level":"[INFO]","time":"2024-06-25 21:01:35","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-06-25 21:01:35","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-06-25 21:01:35","caller":"storage/gcp_storage.go:25","message":"Failed to create GCP Storage client: dialing: google: could not find default credentials. See https://cloud.google.com/docs/authentication/external/set-up-adc for more information\n"}
+{"level":"[FATAL]","time":"2024-06-25 21:01:35","caller":"storage/gcp_storage.go:26","message":"Shutting down"}
+{"level":"[INFO]","time":"2024-06-25 21:05:00","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-06-25 21:05:00","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-06-25 21:12:08","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:12:14","caller":"controller/auth_controller.go:51","message":"User luyendd created","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:12:18","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:14:19","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:14:24","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:15:31","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:15:37","caller":"controller/server_controller.go:256","message":"Set cache successfully: server:all","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:15:37","caller":"controller/server_controller.go:259","message":"Imported successfully: 10 success, 0 failure","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:25:03","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:26:27","caller":"controller/server_controller.go:89","message":"Failed to set cache: redis: can't marshal *entity.Server (implement encoding.BinaryMarshaler)","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:26:27","caller":"controller/server_controller.go:94","message":"Updated server: &{ID:1 Name:google_patch1 IPv4:142.250.204.110 Status:1 CreatedTime:2024-06-25 21:15:37.657512 +0000 UTC LastUpdated:2024-06-25 21:26:27.707027714 +0700 +07 m=+1287.754311822}","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:28:16","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-06-25 21:30:54","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-06-25 21:31:01","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-06-25 21:31:01","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-06-25 21:37:21","caller":"controller/server_controller.go:89","message":"Failed to set cache: redis: can't marshal *entity.Server (implement encoding.BinaryMarshaler)","client":"::1"}
+{"level":"[INFO]","time":"2024-06-25 21:37:21","caller":"controller/server_controller.go:94","message":"Updated server: &{ID:1 Name:google_patch1 IPv4:142.251.220.78 Status:0 CreatedTime:2024-06-25 21:15:37.657512 +0000 UTC LastUpdated:2024-06-25 21:37:21.698522132 +0700 +07 m=+380.282198746}","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:43:28","caller":"controller/server_controller.go:62","message":"Failed to find server: 2","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:43:31","caller":"controller/server_controller.go:62","message":"Failed to find server: 2","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:44:30","caller":"controller/server_controller.go:62","message":"Failed to find server: 2","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:45:38","caller":"controller/server_controller.go:62","message":"Failed to find server: 2","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-25 21:45:44","caller":"controller/server_controller.go:62","message":"Failed to find server: 1","client":"::1"}
+{"level":"[FATAL]","time":"2024-06-25 21:49:40","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-06-25 21:49:52","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-06-25 21:49:52","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-06-25 22:31:10","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-06-30 23:50:44","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[FATAL]","time":"2024-06-30 23:50:44","caller":"sql/posgres.go:41","message":"Failed to connect database: failed to connect to `host=traefik.lc user=checkpoint-project-client database=checkpoint-vcs-sms-db`: server error (FATAL: database \"checkpoint-vcs-sms-db\" does not exist (SQLSTATE 3D000))"}
+{"level":"[INFO]","time":"2024-06-30 23:55:14","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-06-30 23:55:14","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-06-30 23:55:43","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-06-30 23:58:12","caller":"controller/auth_controller.go:51","message":"User luyendd created","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-30 23:58:18","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[ERROR]","time":"2024-06-30 23:58:43","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 00:02:56","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 00:05:07","caller":"controller/server_controller.go:256","message":"Set cache successfully: server:all","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 00:05:07","caller":"controller/server_controller.go:259","message":"Imported successfully: 0 success, 10 failure","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-01 00:06:09","caller":"service/server_service.go:34","message":"Error getting all servers: ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+{"level":"[INFO]","time":"2024-07-01 00:06:09","caller":"controller/server_controller.go:256","message":"Set cache successfully: server:all","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 00:06:09","caller":"controller/server_controller.go:259","message":"Imported successfully: 10 success, 0 failure","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-01 00:17:21","caller":"service/server_service.go:34","message":"Error getting all servers: ERROR: cached plan must not change result type (SQLSTATE 0A000)"}
+{"level":"[INFO]","time":"2024-07-01 00:17:21","caller":"controller/server_controller.go:256","message":"Set cache successfully: server:all","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 00:17:21","caller":"controller/server_controller.go:259","message":"Imported successfully: 10 success, 0 failure","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-01 00:20:56","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 00:21:21","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 00:21:21","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-01 00:21:34","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 00:22:11","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 00:22:11","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-01 14:31:52","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 14:31:52","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-01 14:32:48","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-07-01 14:32:55","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-01 14:33:04","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[ERROR]","time":"2024-07-01 14:33:04","caller":"controller/report_controller.go:50","message":"Failed to send report: redis: can't marshal []entity.Server (implement encoding.BinaryMarshaler)","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-01 14:36:33","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 14:39:07","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 14:39:08","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-01 14:39:10","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[ERROR]","time":"2024-07-01 14:39:10","caller":"controller/report_controller.go:50","message":"Failed to send report: redis: can't marshal []entity.Server (implement encoding.BinaryMarshaler)","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-01 14:43:48","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 14:44:04","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 14:44:04","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-01 14:44:06","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-01 14:44:06","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-01 14:50:02","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 14:50:13","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 14:50:13","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-01 14:50:19","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-01 14:50:19","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-01 15:01:49","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-01 15:01:53","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-01 15:01:54","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-02 10:13:03","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 10:13:03","caller":"sql/posgres.go:41","message":"Failed to connect database: failed to connect to `host=traefik.lc user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 192.168.99.100:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-02 10:14:26","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 10:14:26","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-02 10:15:19","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[INFO]","time":"2024-07-02 10:27:45","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-02 10:31:25","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-02 11:32:38","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 11:41:32","caller":"vcs-sms/main.go:19","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 11:41:33","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-02 11:42:06","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 11:42:07","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-02 11:42:26","caller":"vcs-sms/main.go:24","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 11:50:04","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 11:50:06","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-02 11:50:13","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 11:50:13","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-02 11:50:21","caller":"vcs-sms/main.go:28","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 13:57:52","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 13:57:53","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:00:15","caller":"vcs-sms/main.go:28","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:00:58","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 14:00:58","caller":"mq/kafka.go:29","message":"Failed to create producer: ssl.ca.location failed: error:0B084002:x509 certificate routines:X509_load_cert_crl_file:system lib\n"}
+{"level":"[INFO]","time":"2024-07-02 14:02:48","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 14:02:48","caller":"mq/kafka.go:29","message":"Failed to create producer: ssl.ca.location failed: error:0B084002:x509 certificate routines:X509_load_cert_crl_file:system lib\n"}
+{"level":"[INFO]","time":"2024-07-02 14:06:43","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 14:06:43","caller":"mq/kafka.go:29","message":"Failed to create producer: ssl.ca.location failed: error:0B084002:x509 certificate routines:X509_load_cert_crl_file:system lib\n"}
+{"level":"[INFO]","time":"2024-07-02 14:07:38","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:07:38","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:12:37","caller":"vcs-sms/main.go:28","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:12:41","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:12:42","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-02 14:12:42","caller":"elasticsearch/elasticsearch.go:44","message":"Error getting response: read tcp 127.0.0.1:60174->127.0.0.1:9200: read: connection reset by peer"}
+{"level":"[FATAL]","time":"2024-07-02 14:13:24","caller":"vcs-sms/main.go:28","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:13:28","caller":"vcs-sms/main.go:20","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:13:28","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-02 14:14:17","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 14:14:18","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-02 14:14:53","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 14:14:53","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-02 14:14:54","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 14:14:54","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-02 14:20:42","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-02 14:20:42","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-02 14:24:23","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-02 14:29:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-02 14:46:27","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:46:28","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-02 14:47:22","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:47:22","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-02 14:48:39","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:48:40","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-02 14:49:44","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:49:44","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:50:16","caller":"vcs-sms/main.go:28","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:50:25","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:50:25","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:50:27","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:53:08","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:53:09","caller":"sql/posgres.go:43","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:53:10","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 14:56:28","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:58:10","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 14:58:11","caller":"sql/posgres.go:44","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 14:59:48","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:02:17","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:02:18","caller":"sql/posgres.go:42","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:06:02","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:06:03","caller":"sql/posgres.go:42","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:08:27","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:08:27","caller":"sql/posgres.go:42","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:09:47","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:09:50","caller":"sql/posgres.go:44","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 15:12:29","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:12:56","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:12:58","caller":"sql/posgres.go:42","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:14:57","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:14:58","caller":"sql/posgres.go:42","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:16:31","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:16:32","caller":"sql/posgres.go:43","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:18:37","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:18:38","caller":"sql/posgres.go:43","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:19:59","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-02 15:20:00","caller":"sql/posgres.go:43","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=`: failed SASL auth (FATAL: password authentication failed for user \"checkpoint-project-client\" (SQLSTATE 28P01))"}
+{"level":"[INFO]","time":"2024-07-02 15:28:00","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:28:01","caller":"sql/posgres.go:39","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 15:28:26","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:36:43","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:36:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 15:36:48","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:38:47","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:38:47","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 15:41:55","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:45:28","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:45:29","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-02 15:45:46","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-02 15:53:48","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-02 15:53:49","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 14:18:28","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-04 14:18:29","caller":"sql/posgres.go:36","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-04 14:20:22","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 14:20:22","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 14:33:52","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 14:51:56","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 14:51:56","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 14:51:59","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 14:56:54","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 14:56:54","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 14:58:03","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:01:42","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:01:53","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:01:53","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:01:57","caller":"controller/auth_controller.go:82","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:02:11","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:02:29","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:02:30","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 15:18:33","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:18:43","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:18:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 15:20:38","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:21:02","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:21:02","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 15:25:30","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:25:35","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:25:35","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:25:46","caller":"middleware/check_scope.go:21","message":"Forbidden","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:26:00","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:26:08","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:26:08","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:27:19","caller":"middleware/check_scope.go:21","message":"Forbidden","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:27:21","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:27:27","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:27:27","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:27:31","caller":"middleware/check_scope.go:21","message":"Forbidden","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:28:32","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:28:43","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:28:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:28:45","caller":"middleware/check_scope.go:21","message":"Forbidden","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:29:31","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:29:43","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:29:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:29:45","caller":"middleware/check_scope.go:21","message":"Forbidden","client":"::1"}
+{"level":"[INFO]","time":"2024-07-04 15:29:49","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:30:11","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:30:23","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:30:23","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:30:26","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:30:34","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:30:45","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:30:45","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:31:39","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:32:24","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:32:32","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:32:32","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-04 15:32:34","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:32:46","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:32:46","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:32:49","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:33:43","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:33:54","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:33:54","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:33:57","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:37:16","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:37:28","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:37:29","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:37:32","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:37:41","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:37:54","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:37:54","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:37:58","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:39:03","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:39:14","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:39:14","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:39:18","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:40:10","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:40:38","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:40:38","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:40:44","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:43:02","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:43:10","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:43:10","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:44:37","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-04 15:45:50","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-04 15:45:58","caller":"controller/user_controller.go:27","message":"Failed to bind json: json: cannot unmarshal array into Go struct field CreateUserRequest.role of type entity.Role","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:46:13","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:46:19","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:46:20","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:46:22","caller":"controller/user_controller.go:27","message":"Failed to bind json: json: cannot unmarshal array into Go struct field CreateUserRequest.role of type entity.Role","client":"::1"}
+{"level":"[INFO]","time":"2024-07-04 15:46:45","caller":"controller/user_controller.go:49","message":"User created successfully: luyendd1","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-04 15:46:59","caller":"controller/user_controller.go:33","message":"Username already exist: luyendd1","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-04 15:47:03","caller":"controller/user_controller.go:45","message":"Failed to create user: ERROR: insert or update on table \"users\" violates foreign key constraint \"fk_user_role\" (SQLSTATE 23503)","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:49:43","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:51:16","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:51:16","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-04 15:51:19","caller":"controller/user_controller.go:49","message":"User created successfully: luyendd2","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-04 15:51:45","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-04 15:52:00","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-04 15:52:01","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-04 15:52:08","caller":"controller/user_controller.go:33","message":"Username already exist: luyendd2","client":"::1"}
+{"level":"[INFO]","time":"2024-07-04 15:52:11","caller":"controller/user_controller.go:49","message":"User created successfully: luyendd3","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-05 08:02:29","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-06 22:50:47","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-06 22:50:47","caller":"sql/posgres.go:36","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-06 22:53:02","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-06 22:53:03","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-07 20:22:02","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-07 20:22:02","caller":"sql/posgres.go:36","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-07 20:22:56","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:22:58","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-07 20:22:59","caller":"elasticsearch/elasticsearch.go:41","message":"Error getting response: read tcp 127.0.0.1:50798->127.0.0.1:9200: read: connection reset by peer"}
+{"level":"[ERROR]","time":"2024-07-07 20:23:13","caller":"controller/auth_controller.go:66","message":"Auth failed: Wrong username or password","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-07 20:25:21","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:26:45","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:26:46","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-07 20:26:57","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-07 20:31:17","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:31:42","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:31:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 20:33:09","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:33:16","caller":"vcs-sms/main.go:23","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:33:16","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 20:34:47","caller":"vcs-sms/main.go:31","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:35:03","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 20:35:03","caller":"vcs-sms/main.go:26","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:35:03","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 20:35:30","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:35:43","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 20:35:43","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:35:43","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 20:38:49","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:38:53","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 20:38:53","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:38:53","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 20:41:23","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 20:42:19","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 20:42:19","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 20:42:19","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-07 21:06:50","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 21:12:08","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 21:12:08","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 21:12:08","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-07 21:12:08","caller":"elasticsearch/elasticsearch.go:41","message":"Error getting response: read tcp 127.0.0.1:55292->127.0.0.1:9200: read: connection reset by peer"}
+{"level":"[FATAL]","time":"2024-07-07 21:12:13","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-07 21:12:43","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-07 21:12:43","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-07 21:12:44","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 08:54:41","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 08:54:43","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 08:54:43","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 08:54:44","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 08:55:00","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 08:56:10","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 08:56:10","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 08:56:10","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 08:57:13","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 08:57:32","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 08:57:32","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 08:57:32","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 08:57:39","caller":"service/xlsx_io_service.go:71","message":"Error uploading file: client is not initialized"}
+{"level":"[ERROR]","time":"2024-07-08 08:57:39","caller":"controller/server_controller.go:180","message":"Failed to export: client is not initialized","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 08:59:25","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 08:59:32","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 08:59:32","caller":"vcs-sms/main.go:24","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 08:59:32","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 09:01:03","caller":"vcs-sms/main.go:32","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:02:06","caller":"vcs-sms/main.go:22","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:02:06","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 09:02:16","caller":"vcs-sms/main.go:27","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:02:34","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 09:02:34","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:02:34","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 09:03:58","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:04:06","caller":"storage/gcp_storage.go:32","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 09:04:06","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:04:06","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 09:06:21","caller":"service/xlsx_io_service.go:71","message":"Error uploading file: client is not initialized"}
+{"level":"[ERROR]","time":"2024-07-08 09:06:21","caller":"controller/server_controller.go:180","message":"Failed to export: client is not initialized","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 09:07:17","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:07:26","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 09:07:26","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:07:27","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 09:07:31","caller":"service/xlsx_io_service.go:71","message":"Error uploading file: client is not initialized"}
+{"level":"[ERROR]","time":"2024-07-08 09:07:31","caller":"controller/server_controller.go:180","message":"Failed to export: client is not initialized","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 09:10:21","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:11:38","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 09:11:38","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:11:38","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-08 09:11:55","caller":"controller/server_controller.go:184","message":"Exported successfully: https://storage.googleapis.com/download/storage/v1/b/vcs-sms-bucket/o/export%2F24-07-08_09-11-54.xlsx?generation=1720404715469579&alt=media","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 09:14:24","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 09:14:33","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 09:14:33","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 09:14:33","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 09:45:00","caller":"service/es_service.go:36","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[ERROR]","time":"2024-07-08 09:47:45","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 09:47:59","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 09:48:06","caller":"controller/user_controller.go:33","message":"Username already exist: luyendd3","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 09:48:11","caller":"controller/user_controller.go:49","message":"User created successfully: luyendd4","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 09:51:04","caller":"controller/user_controller.go:33","message":"Username already exist: luyendd4","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 09:51:08","caller":"controller/user_controller.go:49","message":"User created successfully: luyendd5","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 09:55:51","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:01:01","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:01:01","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:01:01","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 10:01:15","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 10:01:39","caller":"controller/user_controller.go:65","message":"User not found: 9","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 10:01:58","caller":"controller/user_controller.go:77","message":"Failed to update user role: ERROR: insert or update on table \"users\" violates foreign key constraint \"fk_user_role\" (SQLSTATE 23503)","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 10:10:02","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:10:12","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:10:12","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:10:12","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-08 10:10:25","caller":"controller/user_controller.go:87","message":"User role updated successfully: 8","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 10:10:35","caller":"controller/user_controller.go:77","message":"Failed to find role: record not found","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 10:11:34","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:11:40","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:11:40","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:11:40","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 10:11:43","caller":"controller/user_controller.go:77","message":"Failed to find role: record not found","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 10:11:47","caller":"controller/user_controller.go:87","message":"User role updated successfully: 8","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 10:18:22","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:18:36","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:18:36","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:18:36","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-08 10:18:40","caller":"controller/user_controller.go:87","message":"User role updated successfully: 8","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-08 10:19:41","caller":"controller/user_controller.go:34","message":"Username already exist: luyendd5","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 10:19:45","caller":"controller/user_controller.go:50","message":"User created successfully: luyendd6","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 10:20:54","caller":"controller/user_controller.go:50","message":"User created successfully: luyendd12","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 10:20:59","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:21:24","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:21:24","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:21:24","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-08 10:21:33","caller":"controller/user_controller.go:34","message":"Username already exist: luyendd12","client":"::1"}
+{"level":"[INFO]","time":"2024-07-08 10:21:36","caller":"controller/user_controller.go:50","message":"User created successfully: luyendd14","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-08 10:26:35","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-08 10:26:47","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-08 10:26:47","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-08 10:26:47","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-08 10:30:49","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:04:41","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:04:41","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:04:41","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-13 22:04:51","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:08:45","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:08:45","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:08:45","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-13 22:14:25","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:14:31","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:14:31","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:14:31","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:25:01","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:25:01","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:25:02","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-13 22:25:02","caller":"elasticsearch/elasticsearch.go:41","message":"Error getting response: read tcp 127.0.0.1:55848->127.0.0.1:9200: read: connection reset by peer"}
+{"level":"[FATAL]","time":"2024-07-13 22:25:18","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:25:45","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:25:45","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:25:45","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-13 22:27:15","caller":"middleware/parse_token.go:32","message":"Unauthorized: Token is expired","client":"::1"}
+{"level":"[INFO]","time":"2024-07-13 22:27:23","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-13 22:29:56","caller":"service/es_service.go:32","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-13 22:29:56","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-13 22:37:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:40:14","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:41:11","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:41:11","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:41:11","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:41:14","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:43:40","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:43:45","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:43:45","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:43:46","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:45:02","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-13 22:49:40","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-13 22:52:20","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:55:36","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:55:41","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:55:41","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:55:41","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:55:45","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:56:10","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:56:17","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:56:17","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:56:17","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:56:19","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:57:12","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:57:25","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:57:25","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:57:25","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-13 22:57:49","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 22:58:04","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 22:58:04","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 22:58:04","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 22:58:12","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 22:59:09","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 23:02:26","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 23:02:26","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 23:02:26","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 23:02:40","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-13 23:04:35","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-13 23:05:10","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-13 23:05:10","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-13 23:05:10","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-13 23:05:29","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 21:32:14","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:32:14","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-14 21:32:14","caller":"sql/posgres.go:36","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-14 21:32:52","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:32:52","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:32:53","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-14 21:32:53","caller":"elasticsearch/elasticsearch.go:41","message":"Error getting response: read tcp 127.0.0.1:34602->127.0.0.1:9200: read: connection reset by peer"}
+{"level":"[FATAL]","time":"2024-07-14 21:36:56","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:37:02","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:37:02","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:37:02","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-14 21:47:48","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 21:48:13","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 21:48:48","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 21:48:58","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 21:51:28","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-14 21:52:37","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:52:45","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:52:45","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:52:45","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-14 21:53:08","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:53:20","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:53:20","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:53:20","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-14 21:55:12","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:55:17","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:55:17","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:55:17","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-14 21:55:20","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-14 21:55:43","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-14 21:56:07","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-14 21:56:08","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-14 21:56:08","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-14 21:56:48","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-14 22:15:22","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 09:44:15","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 09:44:22","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 10:00:50","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 10:01:45","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 10:02:13","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-15 10:03:07","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-16 22:58:45","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-16 22:58:45","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-16 22:58:45","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-16 22:58:51","caller":"controller/auth_controller.go:83","message":"User logged in","client":"::1"}
+{"level":"[INFO]","time":"2024-07-16 22:59:16","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-16 22:59:58","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-16 23:05:27","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-16 23:41:37","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-16 23:41:37","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[FATAL]","time":"2024-07-16 23:41:37","caller":"sql/posgres.go:36","message":"Failed to connect database: failed to connect to `host=localhost user=checkpoint-project-client database=checkpoint-vcs-sms-db`: dial error (dial tcp 127.0.0.1:5432: connect: connection refused)"}
+{"level":"[INFO]","time":"2024-07-17 08:38:21","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-17 08:38:21","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-17 08:38:22","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-17 08:38:25","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:38:18","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:38:18","caller":"vcs-sms/main.go:29","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:38:18","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 15:38:33","caller":"service/es_service.go:32","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 192.168.99.100:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-22 15:38:33","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 15:39:26","caller":"vcs-sms/main.go:34","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:40:27","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:40:27","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:40:27","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-22 15:41:41","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:41:49","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:41:49","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:41:49","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 15:41:53","caller":"service/es_service.go:32","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 192.168.99.100:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-22 15:41:53","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 15:45:37","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:45:49","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:45:49","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:45:49","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 15:46:11","caller":"service/es_service.go:32","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-22 15:46:11","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 15:49:32","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:49:47","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:49:47","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:49:47","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-22 15:50:28","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 15:50:57","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:51:02","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:51:02","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:51:02","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 15:51:22","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:51:22","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 15:51:42","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 15:51:51","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 15:51:51","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 15:51:51","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 15:52:11","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:52:11","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:53:04","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:53:04","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:53:26","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:53:26","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:54:12","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:54:12","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:54:49","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:54:49","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:55:07","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:55:07","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:55:14","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:55:14","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 15:58:50","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 15:58:50","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:00:13","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:00:13","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:29:55","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:29:55","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:30:21","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:30:21","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 16:30:42","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 16:30:47","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 16:30:47","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 16:30:47","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 16:31:07","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:31:07","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:40:55","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:40:55","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:42:44","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:42:44","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:43:41","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:43:41","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:47:59","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:47:59","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 16:48:17","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 16:48:17","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 16:48:43","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 16:48:53","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 16:48:53","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 16:48:53","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-22 16:49:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-22 17:44:49","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 18:01:27","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 18:01:35","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 18:01:35","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 18:01:35","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 18:01:42","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 192.168.99.100:50069: connect: connection refused\""}
+{"level":"[INFO]","time":"2024-07-22 18:01:42","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 18:04:26","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 18:04:33","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 18:04:33","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 18:04:33","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-22 18:04:36","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 18:19:48","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 18:19:58","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 18:19:58","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 18:19:58","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 18:20:08","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 18:20:08","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 18:34:27","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 18:34:35","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 18:34:35","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 18:34:35","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 18:36:11","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 18:36:11","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 18:54:43","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 18:54:43","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 19:53:00","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 19:53:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 20:16:06","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 20:16:43","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 20:16:44","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 20:16:44","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 20:17:55","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 20:17:55","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 20:19:00","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 20:19:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 20:19:09","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 20:19:14","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 20:19:14","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 20:19:14","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 20:19:34","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = connection error: desc = \"transport: Error while dialing: dial tcp 127.0.0.1:50069: i/o timeout\""}
+{"level":"[INFO]","time":"2024-07-22 20:19:34","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-22 20:20:29","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-22 20:20:33","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-22 20:20:33","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-22 20:20:33","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-22 20:20:36","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 20:20:36","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-22 20:29:18","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-22 20:29:18","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-23 09:39:20","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-23 14:43:46","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:43:46","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-23 14:43:46","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[FATAL]","time":"2024-07-23 14:46:02","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-23 14:47:43","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:48:39","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:48:59","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:49:38","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:50:36","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-23 14:50:36","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-23 14:50:36","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[ERROR]","time":"2024-07-23 14:51:44","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-23 14:51:44","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-23 14:53:11","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-23 14:53:11","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-23 14:53:27","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-23 14:53:27","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-23 14:56:44","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-23 14:56:44","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[ERROR]","time":"2024-07-23 14:57:00","caller":"service/es_service.go:33","message":"rpc error: code = Unavailable desc = error reading from server: EOF"}
+{"level":"[INFO]","time":"2024-07-23 14:57:00","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[INFO]","time":"2024-07-23 15:00:50","caller":"controller/report_controller.go:54","message":"Report sent to tudu8603@gmail.com","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-23 15:01:41","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-25 08:54:47","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-25 08:54:47","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-25 08:54:47","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-25 08:55:54","caller":"controller/server_controller.go:184","message":"Exported successfully: https://storage.googleapis.com/download/storage/v1/b/vcs-sms-bucket/o/export%2F24-07-25_08-55-52.xlsx?generation=1721872553739256&alt=media","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-25 08:56:04","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-25 13:17:13","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-25 13:17:13","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-25 13:17:13","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-25 13:17:19","caller":"controller/server_controller.go:185","message":"Exported successfully: https://storage.googleapis.com/download/storage/v1/b/vcs-sms-bucket/o/export%2F24-07-25_13-17-17.xlsx?generation=1721888238313414&alt=media","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-25 13:17:29","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}
+{"level":"[INFO]","time":"2024-07-25 13:27:16","caller":"storage/gcp_storage.go:29","message":"Connected to GCP Storage"}
+{"level":"[INFO]","time":"2024-07-25 13:27:16","caller":"vcs-sms/main.go:32","message":"Server started"}
+{"level":"[INFO]","time":"2024-07-25 13:27:16","caller":"sql/posgres.go:38","message":"Connect to Postgres successfully"}
+{"level":"[INFO]","time":"2024-07-25 13:27:23","caller":"controller/server_controller.go:185","message":"Exported successfully: https://storage.googleapis.com/download/storage/v1/b/vcs-sms-bucket/o/export%2F24-07-25_13-27-21.xlsx?generation=1721888842393512&alt=media","client":"::1"}
+{"level":"[FATAL]","time":"2024-07-25 13:27:28","caller":"vcs-sms/main.go:37","message":"Received signal, shutting down","signal":"interrupt"}

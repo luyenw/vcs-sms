@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  mail-service:
+    network_mode: host
+    image: mail-service
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=ssl://172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+      - MAIL_PASSWORD=bsic skoa tdeq cexs
+    volumes:
+      - ../certs:/usr/local/bin/certs
+    

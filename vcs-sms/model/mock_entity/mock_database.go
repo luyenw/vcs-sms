@@ -64,6 +64,8 @@ func (m *MockDatabase) First(dest interface{}, conds ...interface{}) *gorm.DB {
 				switch v := dest.(type) {
 				case *entity.Server:
 					*v = *value.(*entity.Server)
+				case *entity.User:
+					*v = *value.(*entity.User)
 				}
 			}
 		}
@@ -114,8 +116,8 @@ func (m *MockDatabase) Update(column string, value interface{}) *gorm.DB {
 
 func (m *MockDatabase) Preload(column string, conditions ...interface{}) *gorm.DB {
 	args := m.Called()
-	if err := args.Error(0); err != nil {
-		return &gorm.DB{Error: err}
+	if args.Get(0) != nil {
+		return &gorm.DB{Error: args.Error(0)}
 	}
 	return &gorm.DB{}
 }

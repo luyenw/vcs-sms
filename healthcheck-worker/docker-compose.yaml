@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  healthcheck-worker:
+    network_mode: host
+    image: healthcheck-worker
+    environment:
+      - DB_HOST=172.29.119.193
+      - DB_PASS=Luyendkdk1
+      - REDIS_HOST=localhost:6379
+      - REDIS_PWD=eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+      - ELASTIC_ENDPOINT=http://172.29.119.193:9200
+      - KAFKA_BOOTSTRAP_SERVERS=172.29.119.193:9093
+      - KAFKA_SSL_CA_LOCATION=/usr/local/bin/certs/ca-cert.pem
+      - KAFKA_SSL_CERTIFICATE_LOCATION=/usr/local/bin/certs/client-cert.pem
+      - KAFKA_SSL_KEY_LOCATION=/usr/local/bin/certs/client-key.pem
+      - KAFKA_SSL_KEY_PASSWORD=password
+    volumes:
+      - /mnt/c/Users/luyen/Desktop/vcs-sms/certs:/usr/local/bin/certs

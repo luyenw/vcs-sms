@@ -12,5 +12,5 @@ func (r *Router) InitUserRoute() {
 	userController := controller.NewUserController(service.NewUserService(sql.GetPostgres()))
 	userRouter := r.Group("/users")
 	userRouter.POST("/", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_USER_READ_WRITE), userController.CreateUser)
-	userRouter.PUT("/:id/scopes", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_USER_READ_WRITE), userController.UpdateUserScope)
+	userRouter.PUT("/:id/role", middleware.TokenAuthorization(), middleware.CheckScope(SCOPE.API_USER_READ_WRITE), userController.UpdateUserRole)
 }
